@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El Interruptor del Hambre — Apágalo y Derrite la Grasa</title>
+<meta name="description" content="Las mujeres descubrieron un interruptor del hambre que apaga el apetito como el Ozempic — sin inyecciones, sin receta. Crave Off + Bumbum Cream de regalo.">
+<style>
+  :root{
+    --bg:#0e0b0a;
+    --card:#17110f;
+    --ink:#f6efe9;
+    --muted:#b9a99d;
+    --line:#2a211d;
+    --accent:#e4572e;      /* laranja queimado */
+    --accent-2:#f2a541;    /* dourado */
+    --green:#3fa34d;
+    --radius:16px;
+    --max:760px;
+    font-synthesis:none;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:"Georgia","Times New Roman",serif;
+    line-height:1.6;font-size:18px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
+  .sans{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+
+  /* top bar */
+  .topbar{background:#000;color:#fff;text-align:center;padding:9px 14px;font-size:13px;letter-spacing:.3px}
+  .topbar b{color:var(--accent-2)}
+
+  /* hero */
+  header{padding:30px 0 10px;text-align:center}
+  .kicker{
+    font-family:system-ui,sans-serif;text-transform:uppercase;letter-spacing:2px;
+    font-size:12.5px;color:var(--accent-2);font-weight:700;margin-bottom:14px
+  }
+  h1{
+    font-size:33px;line-height:1.18;margin:0 auto 14px;max-width:16ch;font-weight:800;
+    letter-spacing:-.5px
+  }
+  h1 .hl{color:var(--accent-2)}
+  .sub{font-size:19px;color:var(--muted);max-width:40ch;margin:0 auto 6px}
+
+  /* video */
+  .videobox{margin:22px 0 10px;border-radius:var(--radius);overflow:hidden;
+    border:1px solid var(--line);background:#000;position:relative}
+  video{width:100%;display:block;background:#000}
+  .videohint{font-family:system-ui,sans-serif;font-size:13px;color:var(--muted);
+    text-align:center;margin:10px 0 0;display:flex;align-items:center;justify-content:center;gap:7px}
+  .pulse{width:9px;height:9px;border-radius:50%;background:var(--accent);
+    box-shadow:0 0 0 0 rgba(228,87,46,.6);animation:p 1.6s infinite}
+  @keyframes p{0%{box-shadow:0 0 0 0 rgba(228,87,46,.6)}70%{box-shadow:0 0 0 12px rgba(228,87,46,0)}100%{box-shadow:0 0 0 0 rgba(228,87,46,0)}}
+
+  /* OFFER — hidden until delay */
+  #offer{display:none;margin:26px 0 10px;animation:rise .6s ease both}
+  #offer.show{display:block}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+  .offer-head{text-align:center;margin-bottom:18px}
+  .offer-head .flash{display:inline-block;background:var(--accent);color:#fff;
+    font-family:system-ui,sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;
+    text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:14px}
+  .offer-head h2{font-size:27px;margin:0 auto 8px;max-width:20ch;line-height:1.2}
+
+  /* producto */
+  .product{display:flex;gap:18px;align-items:flex-start;background:var(--card);
+    border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin:18px 0}
+  .product-photo{flex:0 0 130px;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+  .product-photo img{width:100%;display:block}
+  .product-copy .pill{display:inline-block;font-size:11.5px;color:var(--accent-2);
+    border:1px solid rgba(242,165,65,.35);border-radius:999px;padding:4px 11px;margin-bottom:10px}
+  .product-copy h3{margin:0 0 7px;font-size:19px}
+  .product-copy p{margin:0 0 10px;font-size:14px;color:var(--muted);line-height:1.55}
+  .feat{list-style:none;padding:0;margin:0 0 10px}
+  .feat li{font-size:13.5px;color:var(--ink);padding:5px 0 5px 24px;position:relative;line-height:1.4}
+  .feat li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+  .feat b{color:var(--ink)}
+  .plant{font-size:12px !important;color:var(--muted) !important;margin:0 !important}
+
+  /* stack de valor */
+  .vstack{background:var(--card);border:1px dashed var(--line);border-radius:var(--radius);
+    padding:18px 20px;margin:18px 0;font-family:system-ui,sans-serif}
+  .vstack h3{margin:0 0 12px;font-size:15px;text-align:center;letter-spacing:.3px}
+  .vrow{display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;
+    border-bottom:1px dotted var(--line);font-size:14px}
+  .vrow:last-of-type{border-bottom:none}
+  .vrow .v{color:var(--muted)}
+  .vrow .v s{opacity:.7}
+  .vtotal{display:flex;justify-content:space-between;margin-top:12px;padding-top:12px;
+    border-top:2px solid var(--line);font-size:16px;font-weight:800}
+  .vtotal .big{color:var(--accent-2)}
+  .vtoday{text-align:center;margin-top:8px;font-size:14px;color:var(--green);font-weight:700}
+
+  @media(max-width:560px){
+    .product{flex-direction:column}
+    .product-photo{flex:0 0 auto;width:60%;margin:0 auto}
+  }
+
+  /* kits */
+  .kits{display:grid;gap:14px;margin:18px 0}
+  .kit{
+    background:var(--card);border:2px solid var(--line);border-radius:var(--radius);
+    padding:18px 18px 18px 18px;position:relative;cursor:pointer;transition:.18s;
+    display:flex;align-items:center;gap:16px
+  }
+  .kit:hover{border-color:var(--accent-2)}
+  .kit.best{border-color:var(--accent);box-shadow:0 0 0 4px rgba(228,87,46,.12)}
+  .kit.selected{border-color:var(--green);box-shadow:0 0 0 4px rgba(63,163,77,.18)}
+  .kit.selected::after{content:"✓";position:absolute;top:14px;right:16px;width:22px;height:22px;
+    background:var(--green);color:#fff;border-radius:50%;display:flex;align-items:center;
+    justify-content:center;font-family:system-ui,sans-serif;font-size:13px;font-weight:700}
+  .kit .tag{
+    position:absolute;top:-11px;left:18px;background:var(--accent);color:#fff;
+    font-family:system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.8px;
+    text-transform:uppercase;padding:3px 10px;border-radius:999px
+  }
+  .kit .tag.gold{background:var(--accent-2);color:#241a10}
+  .kit-img{width:82px;height:82px;flex:0 0 82px;border-radius:12px;background:#fff;
+    display:flex;align-items:center;justify-content:center;border:1px solid var(--line);overflow:hidden}
+  .kit-img img{width:100%;height:100%;object-fit:contain}
+  .kit-main{flex:1;font-family:system-ui,sans-serif}
+  .kit-main .qty{font-size:18px;font-weight:800}
+  .kit-main .desc{font-size:13.5px;color:var(--muted);margin-top:2px}
+  .kit-main .gift{font-size:13px;color:var(--green);margin-top:5px;font-weight:600}
+  .kit-price{text-align:right;font-family:system-ui,sans-serif;flex:0 0 auto}
+  .kit-price .now{font-size:22px;font-weight:800}
+  .kit-price .per{font-size:12px;color:var(--muted)}
+  .kit-price .was{font-size:13px;color:var(--muted);text-decoration:line-through}
+
+  .cta{
+    display:block;width:100%;text-align:center;font-family:system-ui,sans-serif;
+    background:linear-gradient(180deg,var(--green),#2f7d3a);color:#fff;font-weight:800;
+    font-size:20px;letter-spacing:.3px;padding:19px 18px;border:none;border-radius:14px;
+    cursor:pointer;text-decoration:none;margin-top:8px;box-shadow:0 8px 24px rgba(63,163,77,.25);
+    text-transform:uppercase;transition:.15s;animation:cta 2.2s infinite
+  }
+  .cta:hover{transform:translateY(-2px)}
+  @keyframes cta{0%,100%{transform:scale(1)}50%{transform:scale(1.015)}}
+  .cta small{display:block;font-weight:600;font-size:13px;text-transform:none;opacity:.9;margin-top:3px}
+
+  /* bonus / guarantee strips */
+  .strip{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 20px;margin:16px 0;font-family:system-ui,sans-serif}
+  .strip h3{margin:0 0 6px;font-size:16px;display:flex;align-items:center;gap:9px}
+  .strip p{margin:0;font-size:14.5px;color:var(--muted)}
+  .gift-strip{border-color:rgba(242,165,65,.4);background:linear-gradient(180deg,rgba(242,165,65,.07),transparent)}
+
+  /* gift box */
+  .gift-box{border:1px solid rgba(242,165,65,.45);border-radius:var(--radius);margin:16px 0;
+    background:linear-gradient(180deg,rgba(242,165,65,.08),transparent);overflow:hidden}
+  .gift-tag{background:var(--accent-2);color:#241a10;font-weight:800;font-size:13px;
+    letter-spacing:.3px;text-align:center;padding:8px 14px}
+  .gift-inner{display:flex;gap:16px;align-items:flex-start;padding:18px}
+  .gift-photo{flex:0 0 120px;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+  .gift-photo img{width:100%;display:block}
+  .gift-copy h3{margin:0 0 7px;font-size:17px;line-height:1.25}
+  .gift-copy p{margin:0 0 10px;font-size:13.5px;color:var(--muted);line-height:1.5}
+  @media(max-width:560px){
+    .gift-inner{flex-direction:column}
+    .gift-photo{flex:0 0 auto;width:55%;margin:0 auto}
+  }
+
+  .trust{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:20px 0;
+    font-family:system-ui,sans-serif;font-size:12.5px;color:var(--muted)}
+  .trust span{border:1px solid var(--line);border-radius:999px;padding:6px 13px}
+
+  /* antes y después */
+  .ba-section{margin:24px 0 10px}
+  .ba-title{text-align:center;font-family:"Georgia",serif;font-size:23px;margin:0 0 4px}
+  .ba-sub{text-align:center;font-family:system-ui,sans-serif;font-size:14.5px;color:var(--muted);margin:0 0 16px}
+  .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .ba-card{margin:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .ba-card img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover}
+  .ba-card figcaption{padding:10px 12px;font-family:system-ui,sans-serif;font-size:12.5px;color:var(--muted);line-height:1.4}
+  .ba-card figcaption b{color:var(--ink);display:inline}
+  .ba-card .stars{display:block;color:var(--accent-2);font-size:12px;letter-spacing:1px;margin-bottom:3px}
+  .ba-disc{text-align:center;font-family:system-ui,sans-serif;font-size:11px;color:#6f635a;margin:14px 0 0;font-style:italic}
+  @media(max-width:560px){ .ba-grid{grid-template-columns:1fr 1fr} }
+
+  .scarcity{text-align:center;font-family:system-ui,sans-serif;font-size:14px;
+    color:var(--accent-2);font-weight:700;margin:14px 0}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0 50px;
+    font-family:system-ui,sans-serif;font-size:11.5px;color:#6f635a;text-align:center;line-height:1.7}
+  footer a{color:#8a7d73}
+
+  @media(max-width:560px){
+    h1{font-size:27px}
+    .kit{flex-wrap:wrap}
+    .kit-price{width:100%;text-align:left;border-top:1px solid var(--line);padding-top:10px;margin-top:4px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar sans">⚠️ Las farmacéuticas YA pidieron sacar este video del aire — <b>míralo antes de que lo borren</b></div>
+
+<header>
+  <div class="wrap">
+    <div class="kicker sans">Lo llaman "El Interruptor del Hambre"</div>
+    <h1>Hay un <span class="hl">interruptor del hambre</span> dentro de ti. Apágalo, y la grasa se derrite sola.</h1>
+    <p class="sub sans">Mujeres de 40, 50 y hasta 60 años están perdiendo hasta 15 kilos sin dietas, sin gimnasio y sin la maldita inyección de $1.000 al mes. Solo apagaron un interruptor que nadie les había enseñado.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="videobox">
+    <video id="vsl" playsinline preload="metadata" poster="assets/poster.jpg" controls>
+      <source src="assets/vsl.mp4" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
+  </div>
+  <p class="videohint sans"><span class="pulse"></span> Sube el volumen — el video ya empezó</p>
+
+  <!-- ============ OFERTA (aparece con delay) ============ -->
+  <section id="offer">
+    <div class="offer-head">
+      <span class="flash sans">⚡ Interruptor desbloqueado — solo por hoy</span>
+      <h2>Apaga tu hambre con <span style="color:var(--accent-2)">Crave Off</span>.</h2>
+      <p class="sub sans" style="font-size:16px">Y si vas por la transformación completa (kit de 6), el <b style="color:var(--accent-2)">Bumbum Cream</b> firmador va de REGALO — para adelgazar y quedar firme al mismo tiempo. Elige tu kit abajo.</p>
+    </div>
+
+    <!-- ===== Producto: foto + descripción (voz agresiva) ===== -->
+    <div class="product sans">
+      <div class="product-photo"><img src="assets/craveoff-3.jpg" alt="It's Brazilian Crave Off"></div>
+      <div class="product-copy">
+        <div class="pill">🇧🇷 It's Brazilian · 60 cápsulas · 100% natural</div>
+        <h3>Esto es Crave Off.</h3>
+        <p>No es otra pastilla milagro. Es açaí salvaje del Amazonas que apaga el pico de azúcar después de comer — ese pico es el que, al caer, te hace asaltar la despensa a las 3 de la tarde. Sin el pico, no hay caída. Sin la caída, no hay hambre. Simple.</p>
+        <ul class="feat">
+          <li><b>Açaí amazónico salvaje</b> — frena el pico que dispara el antojo</li>
+          <li><b>Té verde, garcinia y gymnema</b> — apagan el hambre entre comidas</li>
+          <li><b>Energía estable todo el día</b> — sin el bajón de la tarde</li>
+          <li><b>2 cápsulas al día.</b> La mayoría siente el hambre callarse en 1–2 semanas</li>
+        </ul>
+        <p class="plant">🌱 100% vegetal · sin OGM · testeado por terceros · hecho en USA</p>
+      </div>
+    </div>
+
+    <div class="kits sans">
+      <!-- KIT 1 -->
+      <label class="kit" data-cart="/cart/53981685842209:1">
+        <div class="kit-img"><img src="assets/craveoff-1.jpg" alt="Crave Off 1 frasco"></div>
+        <div class="kit-main">
+          <div class="qty">1 Frasco · Solo probar</div>
+          <div class="desc">30 días — para sentir el hambre bajar</div>
+          <div class="gift">+ Guía del Interruptor del Hambre (gratis)</div>
+        </div>
+        <div class="kit-price">
+          <div class="was">$79</div>
+          <div class="now">$49</div>
+          <div class="per">$49 / frasco</div>
+        </div>
+      </label>
+
+      <!-- KIT 3 -->
+      <label class="kit" data-cart="/cart/54450291048737:1">
+        <div class="kit-img"><img src="assets/craveoff-3.jpg" alt="Crave Off 3 frascos"></div>
+        <div class="kit-main">
+          <div class="qty">3 Frascos · El combo que funciona</div>
+          <div class="desc">90 días — el tiempo real para ver el espejo cambiar</div>
+          <div class="gift">+ Guía del Interruptor del Hambre (gratis)</div>
+        </div>
+        <div class="kit-price">
+          <div class="was">$237</div>
+          <div class="now">$117</div>
+          <div class="per">solo $39 / frasco</div>
+        </div>
+      </label>
+
+      <!-- KIT 6 - BEST + REGALO -->
+      <label class="kit best selected" data-cart="/cart/54450291081505:1,53027149480225:1?discount=BUMBUMFREE">
+        <span class="tag">★ El único con REGALO</span>
+        <div class="kit-img"><img src="assets/craveoff-3.jpg" alt="Crave Off 6 frascos"></div>
+        <div class="kit-main">
+          <div class="qty">6 Frascos · Transformación total</div>
+          <div class="desc">180 días — y nunca volver a engordar</div>
+          <div class="gift">🎁 + Bumbum Cream GRATIS ($49) + Guía gratis</div>
+        </div>
+        <div class="kit-price">
+          <div class="was">$474</div>
+          <div class="now">$180</div>
+          <div class="per">solo $30 / frasco</div>
+        </div>
+      </label>
+    </div>
+
+    <!-- ===== Stack de valor (Hormozi) ===== -->
+    <div class="vstack">
+      <h3>Kit de 6 — esto es lo que recibes hoy:</h3>
+      <div class="vrow"><span>Crave Off — 6 frascos (180 días)</span><span class="v">$474</span></div>
+      <div class="vrow"><span>Bumbum Cream firmador — <b style="color:var(--green)">REGALO</b></span><span class="v"><s>$49</s> GRATIS</span></div>
+      <div class="vrow"><span>Guía del Interruptor del Hambre (PDF)</span><span class="v"><s>$29</s> GRATIS</span></div>
+      <div class="vrow"><span>Envío a toda USA</span><span class="v"><s>$9.90</s> GRATIS</span></div>
+      <div class="vtotal"><span>Valor real:</span><span class="big">$561.90</span></div>
+      <div class="vtoday">Hoy, solo por este video: $180</div>
+    </div>
+
+    <a href="#" id="buyBtn" class="cta sans">
+      APAGAR MI HAMBRE AHORA
+      <small>Envío a toda USA · Pago 100% seguro · Garantía de 90 días</small>
+    </a>
+
+    <div class="scarcity sans">🔥 El Bumbum Cream de regalo es solo para el Kit de 6 — y el lote se está agotando</div>
+
+    <div class="gift-box sans">
+      <div class="gift-tag">🎁 Regalo exclusivo del Kit de 6 — valor $49, GRATIS</div>
+      <div class="gift-inner">
+        <div class="gift-photo"><img src="assets/bumbum.jpg" alt="It's Brazilian Bum Bum Cream"></div>
+        <div class="gift-copy">
+          <h3>Bum Bum Cream — el secreto de las celebridades brasileñas</h3>
+          <p>Cuando bajas de peso rápido, la piel sobra. Es la pesadilla de toda mujer que adelgaza. Por eso, <b style="color:var(--accent-2)">solo en el Kit de 6</b>, te lo regalo: el Bum Bum Cream firma la piel mientras el Crave Off derrite la grasa.</p>
+          <ul class="feat">
+            <li><b>Adiós celulitis</b> — rompe los hoyuelos de muslos y glúteos</li>
+            <li><b>Borra las estrías</b> — reafirma y empareja la piel marcada</li>
+            <li><b>Piel más firme y tensa</b> — nada de flacidez al adelgazar</li>
+            <li><b>Suaviza marcas y textura</b> — piel lisa, uniforme, lista para el bikini</li>
+          </ul>
+          <p class="plant">8 FL OZ · 237 mL · la elección de las celebridades brasileñas</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Antes y después (prueba social) ===== -->
+    <div class="ba-section sans">
+      <h3 class="ba-title">Mujeres reales. Resultados reales.</h3>
+      <p class="ba-sub">Esto es lo que pasa cuando el hambre deja de mandar en tu vida 👇</p>
+      <div class="ba-grid">
+        <figure class="ba-card"><img src="assets/ba/ba3.jpg" alt="antes y después"><figcaption><span class="stars">★★★★★</span><b>Carla, 42</b> — "Perdí 18 kg. Volví al gym sintiéndome otra."</figcaption></figure>
+        <figure class="ba-card"><img src="assets/ba/ba8.jpg" alt="antes y después"><figcaption><span class="stars">★★★★★</span><b>Daniela, 38</b> — "Hasta la celulitis de las piernas se fue."</figcaption></figure>
+        <figure class="ba-card"><img src="assets/ba/ba2.jpg" alt="antes y después"><figcaption><span class="stars">★★★★★</span><b>Fernanda, 35</b> — "Dejé de asaltar la cocina a las 3 PM. Bajé 3 tallas."</figcaption></figure>
+        <figure class="ba-card"><img src="assets/ba/ba5.jpg" alt="antes y después"><figcaption><span class="stars">★★★★★</span><b>Mariana, 40</b> — "Después de 2 hijos, volví a usar bikini sin miedo."</figcaption></figure>
+        <figure class="ba-card"><img src="assets/ba/ba1.jpg" alt="antes y después"><figcaption><span class="stars">★★★★★</span><b>Sofía, 29</b> — "Mis jeans favoritos vuelven a cerrar. Lloré."</figcaption></figure>
+        <figure class="ba-card"><img src="assets/ba/ba6.jpg" alt="antes y después"><figcaption><span class="stars">★★★★★</span><b>Patricia, 47</b> — "A mi edad ya no creía en nada. Me equivoqué."</figcaption></figure>
+      </div>
+      <p class="ba-disc">Testimonios de clientas reales con su autorización. Los resultados varían de persona a persona.</p>
+    </div>
+
+    <div class="strip sans">
+      <h3>🛡️ 90 días o te devuelvo todo</h3>
+      <p>Te lo digo de frente: prueba el Crave Off 90 días. Si tu hambre no baja, si la ropa no te queda más suelta, me escribes y te devuelvo cada centavo. Y te quedas con el Bumbum Cream igual. El riesgo es mío, no tuyo.</p>
+    </div>
+
+    <div class="trust sans">
+      <span>✓ Fórmula natural</span>
+      <span>✓ Sin inyecciones</span>
+      <span>✓ Sin receta médica</span>
+      <span>✓ Envío rápido USA</span>
+    </div>
+  </section>
+
+</div>
+
+<footer class="sans">
+  <div class="wrap">
+    <p>Este producto no está destinado a diagnosticar, tratar, curar ni prevenir ninguna enfermedad. Los resultados varían de persona a persona. Las declaraciones no han sido evaluadas por la FDA. Consulta a tu médico antes de iniciar cualquier suplemento.</p>
+    <p>© 2026 It's Brazilian · <a href="#">Términos</a> · <a href="#">Privacidad</a> · <a href="#">Contacto</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var video = document.getElementById('vsl');
+  var offer = document.getElementById('offer');
+
+  // Momento (en segundos) en que el video habla del precio/oferta.
+  // VSL dura ~2845s; la oferta se menciona cerca del min 38.
+  var REVEAL_AT = 2280; // 38:00  <-- ajústalo tras revisar el video
+
+  var revealed = false;
+  function reveal(){
+    if(revealed) return;
+    revealed = true;
+    offer.classList.add('show');
+    offer.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  // Revela por tiempo de reproducción
+  video.addEventListener('timeupdate', function(){
+    if(video.currentTime >= REVEAL_AT) reveal();
+  });
+
+  // ====== Selección de kit + checkout ======
+  var SHOP = 'https://itsbrazilianusa.com';
+  var kits = document.querySelectorAll('.kit');
+  var selectedCart = document.querySelector('.kit.selected')
+      ? document.querySelector('.kit.selected').getAttribute('data-cart')
+      : (kits[0] ? kits[0].getAttribute('data-cart') : null);
+
+  kits.forEach(function(k){
+    k.addEventListener('click', function(e){
+      e.preventDefault();
+      kits.forEach(function(x){ x.classList.remove('selected'); });
+      k.classList.add('selected');
+      selectedCart = k.getAttribute('data-cart');
+    });
+  });
+
+  // Reenvía los parámetros de tracking (utm, rtkcid, fbclid...) al checkout
+  function withTracking(url){
+    var qs = window.location.search.replace(/^\?/, '');
+    if(!qs) return url;
+    return url + (url.indexOf('?') > -1 ? '&' : '?') + qs;
+  }
+
+  document.getElementById('buyBtn').addEventListener('click', function(e){
+    e.preventDefault();
+    if(!selectedCart) return;
+    window.location.href = withTracking(SHOP + selectedCart);
+  });
+})();
+</script>
+</body>
+</html>

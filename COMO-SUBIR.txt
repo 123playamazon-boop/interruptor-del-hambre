@@ -1,0 +1,24 @@
+COMO SUBIR ESSA PAGINA (passo a passo)
+=======================================
+
+Esta pasta JA e um repositorio git pronto, com tudo commitado e
+apontando para: github.com/123playamazon-boop/interruptor-del-hambre
+
+--- OPCAO A: terminal (mais rapido) ---
+1. Abra o Terminal
+2. Entre nesta pasta:   cd caminho/para/esta/pasta
+3. Rode:                git push -u origin main
+   (ou:  bash subir.sh)
+4. Se pedir login, use seu usuario GitHub + um Personal Access Token
+   (github.com -> Settings -> Developer settings -> Tokens)
+
+--- OPCAO B: GitHub Desktop (sem terminal) ---
+1. Abra o GitHub Desktop (logado na conta 123playamazon-boop)
+2. File -> Add Local Repository -> selecione esta pasta
+3. Clique em "Push origin"
+
+--- DEPOIS: deploy na Vercel ---
+1. vercel.com/new
+2. Import Git Repository -> escolha "interruptor-del-hambre"
+3. Framework: Other (site estatico) -> Deploy
+4. Em segundos voce tem a URL no ar.
