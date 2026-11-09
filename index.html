@@ -439,22 +439,25 @@
 
   // ===== Anti-adelantar: no se puede saltar hacia adelante =====
   var maxWatched = 0;
-  video.addEventListener('timeupdate', function(){
-    // registra el punto máximo realmente visto
-    if(video.currentTime > maxWatched && video.currentTime - maxWatched < 1.5){
-      maxWatched = video.currentTime;
-    }
-    // barra de progreso
-    if(video.duration){ barFill.style.width = (video.currentTime / video.duration * 100) + '%'; }
-    // revela la oferta
-    if(video.currentTime >= REVEAL_AT) reveal();
-  });
-  // si intenta adelantar (seek manual), lo devuelve al punto máximo visto
-  video.addEventListener('seeking', function(){
+  function enforceNoSkip(){
+    // si de cualquier forma el tiempo saltó más allá de lo visto, lo devuelve
     if(video.currentTime > maxWatched + 1.5){
       video.currentTime = maxWatched;
+      return true;
     }
+    return false;
+  }
+  video.addEventListener('timeupdate', function(){
+    if(enforceNoSkip()) return;
+    // registra el punto máximo realmente visto
+    if(video.currentTime > maxWatched){ maxWatched = video.currentTime; }
+    // barra de progreso
+    if(video.duration){ barFill.style.width = (maxWatched / video.duration * 100) + '%'; }
+    // revela la oferta
+    if(maxWatched >= REVEAL_AT) reveal();
   });
+  video.addEventListener('seeking', enforceNoSkip);
+  video.addEventListener('seeked', enforceNoSkip);
 
   // ====== Selección de kit + checkout ======
   var SHOP = 'https://itsbrazilianusa.com';
