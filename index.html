@@ -263,6 +263,15 @@ html{scroll-behavior:smooth}
   .guarantee60 h3{margin:0 0 6px;font-size:19px;color:var(--ink)}
   .guarantee60 p{margin:0;font-size:14px;color:var(--muted);line-height:1.55}
   @media(max-width:480px){ .livebar{gap:12px;font-size:12px} }
+
+  .faq{margin:26px 0 8px}
+  .faq-h{text-align:center;font-family:"Georgia",serif;font-size:21px;margin:0 0 14px}
+  .faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:9px;padding:0 14px}
+  .faq summary{cursor:pointer;padding:14px 0;font-weight:700;font-size:15px;list-style:none;position:relative;padding-right:24px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";position:absolute;right:2px;top:12px;font-size:20px;color:var(--accent-2);font-weight:700}
+  .faq details[open] summary::after{content:"\2212"}
+  .faq details p{margin:0 0 14px;font-size:14px;color:var(--muted);line-height:1.55}
 </style>
 </head>
 <body>
@@ -318,7 +327,7 @@ html{scroll-behavior:smooth}
       <div class="product-copy">
         <div class="pill">🇧🇷 It's Brazilian · 60 cápsulas · 100% natural</div>
         <h3>Esto es Crave Off.</h3>
-        <p>No es otra pastilla milagro. Es açaí salvaje del Amazonas que apaga el pico de azúcar después de comer — ese pico es el que, al caer, te hace asaltar la despensa a las 3 de la tarde. Sin el pico, no hay caída. Sin la caída, no hay hambre. Simple.</p>
+        <p>No es otra pastilla milagro. Es el <b>Protocolo del Interruptor del Hambre</b> — açaí salvaje del Amazonas <b>concentrado en una cápsula que pega más fuerte.</b> Apaga el pico de azúcar después de comer — ese pico que, al caer, te hace asaltar la despensa a las 3 de la tarde. Sin el pico, no hay caída. Sin la caída, no hay hambre. <b>Aunque hayas abandonado 5 dietas. Aunque tu metabolismo se sienta muerto después de los 45.</b> Simple.</p>
         <ul class="feat">
           <li><b>Açaí amazónico salvaje</b> — frena el pico que dispara el antojo</li>
           <li><b>Té verde, garcinia y gymnema</b> — apagan el hambre entre comidas</li>
@@ -341,13 +350,13 @@ html{scroll-behavior:smooth}
         <div class="kit-img"><img loading="lazy" decoding="async" src="assets/craveoff-1.jpg" alt="Crave Off 1 frasco"></div>
         <div class="kit-main">
           <div class="qty">1 Frasco · Solo probar</div>
-          <div class="desc">30 días — para sentir el hambre bajar</div>
+          <div class="desc">Suministro de 30 días — probar la vida con el switch apagado</div>
           <div class="gift">+ Guía del Interruptor del Hambre (gratis)</div>
         </div>
         <div class="kit-price">
           <div class="was">$79</div>
           <div class="now">$49</div>
-          <div class="per">$49 / frasco</div>
+          <div class="per">1 mes de antojos en silencio</div>
         </div>
       </label>
 
@@ -356,13 +365,13 @@ html{scroll-behavior:smooth}
         <div class="kit-img"><img loading="lazy" decoding="async" src="assets/craveoff-3.jpg" alt="Crave Off 3 frascos"></div>
         <div class="kit-main">
           <div class="qty">3 Frascos · El combo que funciona</div>
-          <div class="desc">90 días — el tiempo real para ver el espejo cambiar</div>
+          <div class="desc">Suministro de 90 días — el que elige la mayoría</div>
           <div class="gift">+ Guía del Interruptor del Hambre (gratis)</div>
         </div>
         <div class="kit-price">
           <div class="was">$237</div>
           <div class="now">$117</div>
-          <div class="per">solo $39 / frasco</div>
+          <div class="per">3 meses — cambio real en el espejo</div>
         </div>
       </label>
 
@@ -372,13 +381,13 @@ html{scroll-behavior:smooth}
         <div class="kit-img"><img loading="lazy" decoding="async" src="assets/craveoff-3.jpg" alt="Crave Off 6 frascos"></div>
         <div class="kit-main">
           <div class="qty">6 Frascos · Transformación total</div>
-          <div class="desc">180 días — y nunca volver a engordar</div>
+          <div class="desc">Suministro de 180 días — asegúralo y nunca mires atrás</div>
           <div class="gift">🎁 + Bumbum Cream GRATIS ($49) + Guía gratis</div>
         </div>
         <div class="kit-price">
           <div class="was">$474</div>
           <div class="now">$180</div>
-          <div class="per">solo $30 / frasco</div>
+          <div class="per">6 meses + crema firmadora gratis</div>
         </div>
       </label>
     </div>
@@ -416,8 +425,8 @@ html{scroll-behavior:smooth}
 
     <!-- ===== Antes y después (prueba social) ===== -->
     <div class="ba-section sans">
-      <h3 class="ba-title">Mujeres reales. Resultados reales.</h3>
-      <p class="ba-sub">Esto es lo que pasa cuando el hambre deja de mandar en tu vida 👇</p>
+      <h3 class="ba-title">6 mujeres más que apagaron el interruptor</h3>
+      <p class="ba-sub">Distintas edades, el mismo switch — y funcionó incluso después de los hijos, incluso pasados los 45 👇</p>
       <div class="ba-grid">
         <figure class="ba-card"><img loading="lazy" decoding="async" src="assets/ba/ba3.jpg" alt="antes y después"><figcaption><span class="stars">★★★★★</span><b>Carla, 42</b> — "Perdí 18 kg. Volví al gym sintiéndome otra."</figcaption></figure>
         <figure class="ba-card"><img loading="lazy" decoding="async" src="assets/ba/ba8.jpg" alt="antes y después"><figcaption><span class="stars">★★★★★</span><b>Daniela, 38</b> — "Hasta la celulitis de las piernas se fue."</figcaption></figure>
@@ -442,6 +451,16 @@ html{scroll-behavior:smooth}
       <span>✓ Sin inyecciones</span>
       <span>✓ Sin receta médica</span>
       <span>✓ Envío rápido USA</span>
+    </div>
+
+    <!-- ===== FAQ (muro de objeciones) ===== -->
+    <div class="faq sans">
+      <h3 class="faq-h">Antes de ordenar — las preguntas reales</h3>
+      <details><summary>¿Es seguro? ¿Tiene efectos secundarios?</summary><p>Crave Off es 100% a base de plantas, sin transgénicos y probado por terceros, hecho en USA. Sin estimulantes que te pongan nerviosa. La mayoría solo siente el hambre calmarse. Si estás embarazada, amamantando o tomas medicación, consulta antes con tu médico.</p></details>
+      <details><summary>¿Y si mi caso es distinto — ya fallé en todas las dietas?</summary><p>Es exactamente para quien es. Crave Off no depende de la fuerza de voluntad — apaga la caída de azúcar que te hace ceder a las 3 de la tarde. Funciona aunque hayas abandonado 5 dietas, aunque tu metabolismo se sienta muerto después de los 45.</p></details>
+      <details><summary>¿Qué tan rápido veré resultados?</summary><p>La mayoría siente los antojos calmarse en las primeras 1–2 semanas. El cambio en el espejo se nota alrededor de las semanas 4–8. Por eso tienes 60 días completos para juzgarlo — sin riesgo.</p></details>
+      <details><summary>¿Cuándo se envía y llega?</summary><p>Las órdenes salen desde USA en 1 día hábil. La entrega suele ser de 3–5 días hábiles, gratis en todo USA.</p></details>
+      <details><summary>¿Y si no me funciona?</summary><p>Nos escribes dentro de 60 días y te devolvemos el 100% de lo que pagaste. Te quedas con el Bumbum Cream. Te quedas con los frascos. El riesgo es todo nuestro.</p></details>
     </div>
   </section>
 
