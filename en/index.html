@@ -44,17 +44,11 @@ html{scroll-behavior:smooth}
   .topbar b{color:var(--accent-2)}
 
   /* hero */
-  header{padding:30px 0 10px;text-align:center}
-  .kicker{
-    font-family:system-ui,sans-serif;text-transform:uppercase;letter-spacing:2px;
-    font-size:12.5px;color:var(--accent-2);font-weight:700;margin-bottom:14px
-  }
-  h1{
-    font-size:33px;line-height:1.18;margin:0 auto 14px;max-width:16ch;font-weight:800;
-    letter-spacing:-.5px
-  }
-  h1 .hl{color:var(--accent-2)}
-  .sub{font-size:19px;color:var(--muted);max-width:40ch;margin:0 auto 6px}
+  header{padding:26px 0 10px;text-align:left;border-bottom:1px solid var(--line);margin-bottom:6px}
+  .kicker{display:inline-block;font-family:system-ui,sans-serif;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+  h1{font-family:"Georgia","Times New Roman",serif;font-size:34px;line-height:1.15;font-weight:800;color:var(--ink);margin:0 auto 12px;max-width:none;text-align:left;letter-spacing:-.5px}
+  h1 .hl{color:inherit}
+  .sub{font-size:18px;color:var(--ink);max-width:none;margin:0 0 14px;text-align:left;line-height:1.5}
 
   /* video */
   .videobox{margin:22px 0 10px;border-radius:var(--radius);overflow:hidden;
@@ -231,7 +225,7 @@ html{scroll-behavior:smooth}
   footer a{color:#8a7d73}
 
   @media(max-width:560px){
-    h1{font-size:27px}
+    h1{font-size:28px}
     .kit{flex-wrap:wrap}
     .kit-price{width:100%;text-align:left;border-top:1px solid var(--line);padding-top:10px;margin-top:4px}
   }
@@ -285,21 +279,63 @@ html{scroll-behavior:smooth}
   .faq summary::after{content:"+";position:absolute;right:2px;top:12px;font-size:20px;color:var(--accent-2);font-weight:700}
   .faq details[open] summary::after{content:"\2212"}
   .faq details p{margin:0 0 14px;font-size:14px;color:var(--muted);line-height:1.55}
+
+  .byline{display:flex;align-items:center;gap:10px;font-family:system-ui,sans-serif;font-size:13px;color:var(--muted);padding:6px 0 2px}
+  .byline b{color:var(--ink)}
+  .byline-av{width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:system-ui,sans-serif}
+
+  /* fake-news portal nav */
+  .site-nav{background:#fff;border-bottom:2px solid #111;position:sticky;top:0;z-index:50}
+  .nav-inner{max-width:var(--max);margin:0 auto;padding:11px 18px;display:flex;align-items:center;gap:18px}
+  .nav-logo{font-family:"Georgia",serif;font-size:21px;font-weight:800;color:#111;white-space:nowrap}
+  .nav-logo b{font-weight:800}
+  .nav-pulse{color:var(--accent);font-size:17px}
+  .nav-links{display:flex;gap:16px;font-family:system-ui,sans-serif;font-size:13px;font-weight:700;color:#333;flex:1}
+  .nav-links a{cursor:default}
+  .nav-icons{font-size:16px;color:#333}
+  .news-date{font-family:system-ui,sans-serif;font-size:12.5px;color:var(--muted);padding-top:4px;margin-bottom:10px;border-bottom:1px solid var(--line);padding-bottom:10px}
+  .breaking{display:inline-block;background:var(--accent);color:#fff;font-family:system-ui,sans-serif;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border-radius:3px;margin-bottom:12px}
+  .hl-red{color:var(--accent)}
+  @media(max-width:560px){ .nav-links{display:none} }
+
+  .fbcomments{margin:28px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+  .fbc-head{font-family:system-ui,sans-serif;font-weight:800;font-size:17px;color:var(--ink);margin-bottom:16px}
+  .fbc{display:flex;gap:9px;margin-bottom:14px}
+  .fbc-av{width:38px;height:38px;border-radius:50%;flex-shrink:0;color:#fff;font-family:system-ui,sans-serif;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .fbc-body{flex:1;min-width:0}
+  .fbc-name{font-family:system-ui,sans-serif;font-weight:700;font-size:13.5px;color:#385898;background:#f0f2f5;border-radius:14px 14px 14px 4px;padding:8px 12px 2px}
+  .fbc-text{font-family:system-ui,sans-serif;font-size:14px;color:#1c1e21;background:#f0f2f5;border-radius:0 0 14px 14px;padding:0 12px 9px;line-height:1.4}
+  .fbc-meta{font-family:system-ui,sans-serif;font-size:12px;color:#65676b;font-weight:600;padding:4px 0 0 12px;display:flex;align-items:center;gap:8px}
+  .fbc-react{margin-left:auto;background:#fff;border:1px solid var(--line);border-radius:12px;padding:1px 7px;font-weight:600}
+  .fbc-reply{margin-top:11px;margin-left:4px}
+  .fbc-reply .fbc-av{width:30px;height:30px;font-size:11px}
 </style>
 </head>
 <body>
 
-<div class="topbar sans">⚠️ Big Pharma ALREADY asked to take this video down — <b>watch it before it's gone</b></div>
 <div class="livebar sans">
   <span class="live-watch"><span class="live-dot"></span><b id="watchCount">1,347</b> women watching right now</span>
   <span class="live-timer">⏳ Today's price locks for <b id="countdown">15:00</b></span>
 </div>
 
+<nav class="site-nav sans">
+  <div class="nav-inner">
+    <div class="nav-logo"><span class="nav-pulse">♥</span> VIDA <b>Health</b></div>
+    <div class="nav-links"><a>Health</a><a>Fitness</a><a>Food</a><a>Sleep</a><a>Life</a></div>
+    <div class="nav-icons">⌕</div>
+  </div>
+</nav>
+
 <header>
   <div class="wrap">
-    <div class="kicker sans">They call it "The Hunger Switch"</div>
-    <h1>There's a <span class="hl">hunger switch</span> inside you. Turn it off, and the fat melts on its own.</h1>
-    <p class="sub sans">Women in their 40s, 50s and even 60s are losing up to 35 pounds without diets, without the gym, and without the $1,000-a-month injection. They just flipped a switch nobody ever told them about.</p>
+    <div class="news-date sans">Updated today &middot; 6 min read</div>
+    <span class="breaking sans">● Breaking News</span>
+    <h1>Top US researcher reveals the "hunger switch" that melts fat in weeks — <span class="hl-red">no diets, no injections</span>.</h1>
+    <p class="sub sans">(Watch how it works below) Women in their 40s, 50s and even 60s are losing up to 35 pounds without diets, without the gym, and without the $1,000-a-month injection — just by flipping a switch nobody ever told them about.</p>
+    <div class="byline sans">
+      <span class="byline-av">RM</span>
+      <span>By <b>Dr. Rachel Medina</b>, VIDA Health Desk &middot; Reviewed by the Editorial Board</span>
+    </div>
   </div>
 </header>
 
@@ -488,6 +524,37 @@ html{scroll-behavior:smooth}
   </section>
 
 </div>
+
+<div class="wrap">
+    <div class="fbcomments sans">
+      <div class="fbc-head">💬 <b>14,208</b> Comments</div>
+      <div class="fbc">
+        <div class="fbc-av" style="background:#cc9988">HC</div>
+        <div class="fbc-body"><div class="fbc-name">Hannah Cooper</div><div class="fbc-text">With so many scams online it's rare to find something that actually works. I'm down 22 lbs and the 3 PM cravings are just gone.</div><div class="fbc-meta">Like · Reply · 2h <span class="fbc-react">👍❤️ 41</span></div></div>
+      </div>
+      <div class="fbc">
+        <div class="fbc-av" style="background:#77aa99">RH</div>
+        <div class="fbc-body"><div class="fbc-name">Robert Hayes</div><div class="fbc-text">thought this was gonna be another video that drags forever just to sell you something, thank god i stuck around. been taking it 3 weeks and i stopped snacking at night completely</div><div class="fbc-meta">Like · Reply · 7 min <span class="fbc-react">👍❤️ 28</span></div>
+          <div class="fbc fbc-reply"><div class="fbc-av" style="background:#bb8877">SC</div><div class="fbc-body"><div class="fbc-name">Sandra Castillo</div><div class="fbc-text">I thought the same thing!! i've tried every diet you can think of, but this is the first thing that actually turned the hunger off. down 3 sizes since i started</div><div class="fbc-meta">Like · Reply · 6 min <span class="fbc-react">👍❤️ 32</span></div></div></div>
+        </div>
+      </div>
+      <div class="fbc">
+        <div class="fbc-av" style="background:#99aa88">NP</div>
+        <div class="fbc-body"><div class="fbc-name">Natalie Parker</div><div class="fbc-text">anyone actually tried this? curious but skeptical 🤔</div><div class="fbc-meta">Like · Reply · 1h <span class="fbc-react">👍❤️ 34</span></div>
+          <div class="fbc fbc-reply"><div class="fbc-av" style="background:#8888aa">JM</div><div class="fbc-body"><div class="fbc-name">Jacob Morgan</div><div class="fbc-text">been using this 2 months and the difference is night and day. the cravings are just gone and the weight keeps coming off without me even trying</div><div class="fbc-meta">Like · Reply · 1h <span class="fbc-react">👍❤️ 32</span></div></div></div>
+          <div class="fbc fbc-reply"><div class="fbc-av" style="background:#99aa88">NP</div><div class="fbc-body"><div class="fbc-name">Natalie Parker</div><div class="fbc-text">thats awesome, thanks for the heads up. def gonna try it!</div><div class="fbc-meta">Like · Reply · 1h <span class="fbc-react">👍❤️ 76</span></div></div></div>
+        </div>
+      </div>
+      <div class="fbc">
+        <div class="fbc-av" style="background:#aa7799">SE</div>
+        <div class="fbc-body"><div class="fbc-name">Samantha Edwards</div><div class="fbc-text">I've tried keto, the shots, the apps... this is the first time i felt like my old self. back in my favorite jeans, hosting my book club again, and i actually have energy in the afternoon now</div><div class="fbc-meta">Like · Reply · 23 min <span class="fbc-react">👍❤️ 58</span></div></div>
+      </div>
+      <div class="fbc">
+        <div class="fbc-av" style="background:#779988">JR</div>
+        <div class="fbc-body"><div class="fbc-name">Jessica Reeves</div><div class="fbc-text">ordered the 6 bottle kit last week and the free cream came with it. didn't expect much but the hunger thing is real. no more raiding the kitchen at night</div><div class="fbc-meta">Like · Reply · 44 min <span class="fbc-react">👍❤️ 19</span></div></div>
+      </div>
+    </div>
+  </div>
 
 <footer class="sans">
   <div class="wrap">

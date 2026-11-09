@@ -272,21 +272,62 @@ html{scroll-behavior:smooth}
   .faq summary::after{content:"+";position:absolute;right:2px;top:12px;font-size:20px;color:var(--accent-2);font-weight:700}
   .faq details[open] summary::after{content:"\2212"}
   .faq details p{margin:0 0 14px;font-size:14px;color:var(--muted);line-height:1.55}
+
+  .site-nav{background:#fff;border-bottom:2px solid #111;position:sticky;top:0;z-index:50}
+  .nav-inner{max-width:var(--max);margin:0 auto;padding:11px 18px;display:flex;align-items:center;gap:18px}
+  .nav-logo{font-family:"Georgia",serif;font-size:21px;font-weight:800;color:#111;white-space:nowrap}
+  .nav-pulse{color:var(--accent);font-size:17px}
+  .nav-links{display:flex;gap:16px;font-family:system-ui,sans-serif;font-size:13px;font-weight:700;color:#333;flex:1}
+  .nav-icons{font-size:16px;color:#333}
+  .news-date{font-family:system-ui,sans-serif;font-size:12.5px;color:var(--muted);padding-top:4px;margin-bottom:10px;border-bottom:1px solid var(--line);padding-bottom:10px}
+  .breaking{display:inline-block;background:var(--accent);color:#fff;font-family:system-ui,sans-serif;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border-radius:3px;margin-bottom:12px}
+  .hl-red{color:var(--accent)}
+  header{text-align:left}
+  h1{text-align:left}
+  .sub{text-align:left;max-width:none}
+  .byline{display:flex;align-items:center;gap:10px;font-family:system-ui,sans-serif;font-size:13px;color:var(--muted);padding:6px 0 2px}
+  .byline b{color:var(--ink)}
+  .byline-av{width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  @media(max-width:560px){ .nav-links{display:none} }
+
+  .fbcomments{margin:28px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+  .fbc-head{font-family:system-ui,sans-serif;font-weight:800;font-size:17px;color:var(--ink);margin-bottom:16px}
+  .fbc{display:flex;gap:9px;margin-bottom:14px}
+  .fbc-av{width:38px;height:38px;border-radius:50%;flex-shrink:0;color:#fff;font-family:system-ui,sans-serif;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .fbc-body{flex:1;min-width:0}
+  .fbc-name{font-family:system-ui,sans-serif;font-weight:700;font-size:13.5px;color:#385898;background:#f0f2f5;border-radius:14px 14px 14px 4px;padding:8px 12px 2px}
+  .fbc-text{font-family:system-ui,sans-serif;font-size:14px;color:#1c1e21;background:#f0f2f5;border-radius:0 0 14px 14px;padding:0 12px 9px;line-height:1.4}
+  .fbc-meta{font-family:system-ui,sans-serif;font-size:12px;color:#65676b;font-weight:600;padding:4px 0 0 12px;display:flex;align-items:center;gap:8px}
+  .fbc-react{margin-left:auto;background:#fff;border:1px solid var(--line);border-radius:12px;padding:1px 7px;font-weight:600}
+  .fbc-reply{margin-top:11px;margin-left:4px}
+  .fbc-reply .fbc-av{width:30px;height:30px;font-size:11px}
 </style>
 </head>
 <body>
 
-<div class="topbar sans">⚠️ Las farmacéuticas YA pidieron sacar este video del aire — <b>míralo antes de que lo borren</b></div>
 <div class="livebar sans">
   <span class="live-watch"><span class="live-dot"></span><b id="watchCount">1,347</b> mujeres viéndolo ahora mismo</span>
   <span class="live-timer">⏳ El precio de hoy se cierra en <b id="countdown">15:00</b></span>
 </div>
 
+<nav class="site-nav sans">
+  <div class="nav-inner">
+    <div class="nav-logo"><span class="nav-pulse">♥</span> VIDA <b>Salud</b></div>
+    <div class="nav-links"><a>Salud</a><a>Fitness</a><a>Comida</a><a>Sueño</a><a>Vida</a></div>
+    <div class="nav-icons">⌕</div>
+  </div>
+</nav>
+
 <header>
   <div class="wrap">
-    <div class="kicker sans">Lo llaman "El Interruptor del Hambre"</div>
-    <h1>Hay un <span class="hl">interruptor del hambre</span> dentro de ti. Apágalo, y la grasa se derrite sola.</h1>
-    <p class="sub sans">Mujeres de 40, 50 y hasta 60 años están perdiendo hasta 15 kilos sin dietas, sin gimnasio y sin la maldita inyección de $1.000 al mes. Solo apagaron un interruptor que nadie les había enseñado.</p>
+    <div class="news-date sans">Actualizado hoy &middot; 6 min de lectura</div>
+    <span class="breaking sans">● Última Hora</span>
+    <h1>Una investigadora revela el "interruptor del hambre" que derrite la grasa en semanas — <span class="hl-red">sin dietas, sin inyecciones</span>.</h1>
+    <p class="sub sans">(Mira cómo funciona abajo) Mujeres de 40, 50 y hasta 60 años están perdiendo hasta 15 kilos sin dietas, sin gimnasio y sin la maldita inyección de $1.000 al mes — solo apagaron un interruptor que nadie les había enseñado.</p>
+    <div class="byline sans">
+      <span class="byline-av">RM</span>
+      <span>Por <b>Dra. Raquel Medina</b>, Redacción VIDA Salud &middot; Revisado por el Consejo Editorial</span>
+    </div>
   </div>
 </header>
 
@@ -465,6 +506,22 @@ html{scroll-behavior:smooth}
   </section>
 
 </div>
+
+<div class="wrap">
+    <div class="fbcomments sans">
+      <div class="fbc-head">💬 <b>14,208</b> Comentarios</div>
+      <div class="fbc"><div class="fbc-av" style="background:#cc9988">HC</div><div class="fbc-body"><div class="fbc-name">Hannah Cooper</div><div class="fbc-text">Con tantas estafas en línea es raro encontrar algo que de verdad funcione. Bajé 10 kilos y los antojos de las 3 de la tarde desaparecieron.</div><div class="fbc-meta">Me gusta · Responder · 2h <span class="fbc-react">👍❤️ 41</span></div></div></div>
+      <div class="fbc"><div class="fbc-av" style="background:#77aa99">RH</div><div class="fbc-body"><div class="fbc-name">Roberto Ramírez</div><div class="fbc-text">pensé que era otro de esos videos que se alargan para venderte algo, gracias a dios me quedé. llevo 3 semanas y dejé de comer de noche por completo</div><div class="fbc-meta">Me gusta · Responder · 7 min <span class="fbc-react">👍❤️ 28</span></div>
+        <div class="fbc fbc-reply"><div class="fbc-av" style="background:#bb8877">SC</div><div class="fbc-body"><div class="fbc-name">Sandra Castillo</div><div class="fbc-text">¡¡pensé lo mismo!! he probado todas las dietas que te puedas imaginar, pero esto es lo primero que de verdad apaga el hambre. bajé 3 tallas</div><div class="fbc-meta">Me gusta · Responder · 6 min <span class="fbc-react">👍❤️ 32</span></div></div></div>
+      </div></div>
+      <div class="fbc"><div class="fbc-av" style="background:#99aa88">NP</div><div class="fbc-body"><div class="fbc-name">Natalia Pérez</div><div class="fbc-text">¿alguien lo probó de verdad? curiosa pero escéptica 🤔</div><div class="fbc-meta">Me gusta · Responder · 1h <span class="fbc-react">👍❤️ 34</span></div>
+        <div class="fbc fbc-reply"><div class="fbc-av" style="background:#8888aa">JM</div><div class="fbc-body"><div class="fbc-name">Jacobo Morales</div><div class="fbc-text">llevo 2 meses usándolo y la diferencia es del cielo a la tierra. los antojos desaparecieron y el peso sigue bajando sin que yo haga nada</div><div class="fbc-meta">Me gusta · Responder · 1h <span class="fbc-react">👍❤️ 32</span></div></div></div>
+        <div class="fbc fbc-reply"><div class="fbc-av" style="background:#99aa88">NP</div><div class="fbc-body"><div class="fbc-name">Natalia Pérez</div><div class="fbc-text">¡qué bueno, gracias por el dato. seguro lo voy a probar!</div><div class="fbc-meta">Me gusta · Responder · 1h <span class="fbc-react">👍❤️ 76</span></div></div></div>
+      </div></div>
+      <div class="fbc"><div class="fbc-av" style="background:#aa7799">SE</div><div class="fbc-body"><div class="fbc-name">Samanta Escárate</div><div class="fbc-text">he probado keto, las inyecciones, las apps... esta es la primera vez que me siento como antes. volví a mis jeans favoritos, vuelvo a tener energía en la tarde</div><div class="fbc-meta">Me gusta · Responder · 23 min <span class="fbc-react">👍❤️ 58</span></div></div></div>
+      <div class="fbc"><div class="fbc-av" style="background:#779988">JR</div><div class="fbc-body"><div class="fbc-name">Jessica Reyes</div><div class="fbc-text">pedí el kit de 6 frascos la semana pasada y vino con la crema de regalo. no esperaba mucho pero lo del hambre es real. ya no asalto la cocina de noche</div><div class="fbc-meta">Me gusta · Responder · 44 min <span class="fbc-react">👍❤️ 19</span></div></div></div>
+    </div>
+  </div>
 
 <footer class="sans">
   <div class="wrap">
