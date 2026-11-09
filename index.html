@@ -497,26 +497,24 @@
       ? document.querySelector('.kit.selected').getAttribute('data-cart')
       : (kits[0] ? kits[0].getAttribute('data-cart') : null);
 
-  kits.forEach(function(k){
-    k.addEventListener('click', function(e){
-      e.preventDefault();
-      kits.forEach(function(x){ x.classList.remove('selected'); });
-      k.classList.add('selected');
-      selectedCart = k.getAttribute('data-cart');
-    });
-  });
-
-  // Reenvía los parámetros de tracking (utm, rtkcid, fbclid...) al checkout
   function withTracking(url){
     var qs = window.location.search.replace(/^\?/, '');
     if(!qs) return url;
     return url + (url.indexOf('?') > -1 ? '&' : '?') + qs;
   }
-
-  document.getElementById('buyBtn').addEventListener('click', function(e){
-    e.preventDefault();
-    if(!selectedCart) return;
-    window.location.href = withTracking(SHOP + selectedCart);
+  var buyBtn = document.getElementById('buyBtn');
+  function syncBuyHref(){ if(selectedCart){ buyBtn.setAttribute('href', withTracking(SHOP + selectedCart)); } }
+  syncBuyHref();
+  kits.forEach(function(k){
+    k.addEventListener('click', function(){
+      kits.forEach(function(x){ x.classList.remove('selected'); });
+      k.classList.add('selected');
+      selectedCart = k.getAttribute('data-cart');
+      syncBuyHref();
+    });
+  });
+  buyBtn.addEventListener('click', function(e){
+    if(selectedCart){ e.preventDefault(); window.location.href = withTracking(SHOP + selectedCart); }
   });
 })();
 </script>
