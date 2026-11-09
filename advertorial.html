@@ -246,3 +246,20 @@
 </script>
 </body>
 </html>
+<script>
+/* dead-click recovery: headline + before/after images -> VSL */
+(function(){
+  var qs = location.search || '';
+  function go(){ location.href = '/' + qs; }
+  var targets = [];
+  var h1 = document.querySelector('h1'); if(h1) targets.push(h1);
+  document.querySelectorAll('img').forEach(function(img){
+    var n = (img.getAttribute('src')||'');
+    if(/ba\d+\.(jpg|jpeg|png|webp)/i.test(n)) targets.push(img);
+  });
+  targets.forEach(function(el){
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', go);
+  });
+})();
+</script>
