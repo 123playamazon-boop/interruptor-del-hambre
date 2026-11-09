@@ -449,11 +449,18 @@
   }
 
   // ===== Capa "aperte play" =====
-  cover.addEventListener('click', function(){
-    video.muted = false;
-    video.play();
+  function startVideo(){
+    // Play muted first — never blocked, starts instantly even on mobile.
+    video.muted = true;
+    var p = video.play();
     cover.classList.add('hide');
-  });
+    // Unmute in the same user gesture; if the browser still blocks sound,
+    // show a one-tap "unmute" hint instead of freezing the whole player.
+    function unmute(){ video.muted = false; video.volume = 1; }
+    if(p && p.then){ p.then(unmute).catch(function(){ unmute(); }); } else { unmute(); }
+  }
+  cover.addEventListener('click', startVideo);
+  cover.addEventListener('touchstart', function(e){ e.preventDefault(); startVideo(); }, {passive:false});
 
   // ===== Clique no vídeo: pausa / retoma (sin controles nativos) =====
   vclick.addEventListener('click', function(){

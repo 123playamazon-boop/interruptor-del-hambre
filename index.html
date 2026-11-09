@@ -432,11 +432,15 @@
   }
 
   // ===== Capa "aperte play" =====
-  cover.addEventListener('click', function(){
-    video.muted = false;
-    video.play();
+  function startVideo(){
+    video.muted = true;
+    var p = video.play();
     cover.classList.add('hide');
-  });
+    function unmute(){ video.muted = false; video.volume = 1; }
+    if(p && p.then){ p.then(unmute).catch(function(){ unmute(); }); } else { unmute(); }
+  }
+  cover.addEventListener('click', startVideo);
+  cover.addEventListener('touchstart', function(e){ e.preventDefault(); startVideo(); }, {passive:false});
 
   // ===== Clique no vídeo: pausa / retoma (sin controles nativos) =====
   vclick.addEventListener('click', function(){
