@@ -16,15 +16,15 @@
 <style>
 html{scroll-behavior:smooth}
   :root{
-    --bg:#0e0b0a;
-    --card:#17110f;
-    --ink:#f6efe9;
-    --muted:#b9a99d;
-    --line:#2a211d;
-    --accent:#e4572e;      /* laranja queimado */
-    --accent-2:#f2a541;    /* dourado */
-    --green:#3fa34d;
-    --radius:16px;
+    --bg:#ffffff;
+    --card:#f7f7f8;
+    --ink:#16181c;
+    --muted:#5a6168;
+    --line:#e2e4e8;
+    --accent:#cc0000;      /* CNN red */
+    --accent-2:#b8860b;    /* dark gold for highlights */
+    --green:#1a7f37;
+    --radius:10px;
     --max:760px;
     font-synthesis:none;
   }
@@ -62,7 +62,7 @@ html{scroll-behavior:smooth}
   video{width:100%;display:block;background:#000}
 
   /* ===== VSL player custom ===== */
-  .vcover{position:absolute;inset:0;background:rgba(10,8,7,.82);backdrop-filter:blur(2px);
+  .vcover{position:absolute;inset:0;background:rgba(255,255,255,.88);backdrop-filter:blur(2px);
     display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;transition:opacity .3s}
   .vcover.hide{opacity:0;pointer-events:none}
   .vcover-inner{text-align:center;padding:20px}
@@ -240,19 +240,19 @@ html{scroll-behavior:smooth}
   .pc-btn{margin-top:4px}
   @media(max-width:480px){ .pc-card figcaption{font-size:10px} }
 
-  .livebar{background:#140f0d;border-bottom:1px solid var(--line);display:flex;justify-content:center;gap:22px;flex-wrap:wrap;
+  .livebar{background:#f2f2f3;border-bottom:1px solid var(--line);display:flex;justify-content:center;gap:22px;flex-wrap:wrap;
     padding:8px 14px;font-size:13px;color:var(--ink);position:sticky;top:0;z-index:40}
   .live-watch{display:inline-flex;align-items:center;gap:7px}
   .live-watch b,.live-timer b{color:var(--accent-2)}
   .live-dot{width:8px;height:8px;border-radius:50%;background:#e4572e;box-shadow:0 0 0 0 rgba(228,87,46,.6);animation:livepulse 1.4s infinite}
   @keyframes livepulse{0%{box-shadow:0 0 0 0 rgba(228,87,46,.6)}70%{box-shadow:0 0 0 7px rgba(228,87,46,0)}100%{box-shadow:0 0 0 0 rgba(228,87,46,0)}}
   .live-timer b{font-variant-numeric:tabular-nums}
-  .raffle{background:linear-gradient(135deg,#1a1410,#241a14);border:1px solid var(--accent);border-radius:16px;padding:18px 16px;margin:22px 0;text-align:center}
+  .raffle{background:linear-gradient(135deg,#fff8f0,#fdf0e6);border:1px solid var(--accent);border-radius:16px;padding:18px 16px;margin:22px 0;text-align:center}
   .raffle-badge{display:inline-block;background:var(--accent);color:#fff;font-weight:800;font-size:11px;letter-spacing:.5px;padding:4px 12px;border-radius:30px;margin-bottom:10px;text-transform:uppercase}
   .raffle h3{margin:0 0 6px;font-family:"Georgia",serif;font-size:21px;line-height:1.25}
   .raffle p{margin:0;font-size:14px;color:var(--muted);line-height:1.5}
   .raffle .amz{color:var(--accent-2);font-weight:800}
-  .salepop{position:fixed;left:14px;bottom:14px;z-index:60;max-width:300px;background:#17110f;border:1px solid var(--line);
+  .salepop{position:fixed;left:14px;bottom:14px;z-index:60;max-width:300px;background:#ffffff;border:1px solid var(--line);
     border-left:4px solid var(--green);border-radius:12px;padding:11px 13px;box-shadow:0 8px 28px rgba(0,0,0,.5);
     font-size:13px;color:var(--ink);transform:translateY(140%);opacity:0;transition:.4s;font-family:system-ui,sans-serif}
   .salepop.show{transform:translateY(0);opacity:1}
