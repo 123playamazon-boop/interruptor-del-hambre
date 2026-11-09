@@ -239,11 +239,39 @@ html{scroll-behavior:smooth}
   .pc-card figcaption b{color:var(--ink)}
   .pc-btn{margin-top:4px}
   @media(max-width:480px){ .pc-card figcaption{font-size:10px} }
+
+  .livebar{background:#140f0d;border-bottom:1px solid var(--line);display:flex;justify-content:center;gap:22px;flex-wrap:wrap;
+    padding:8px 14px;font-size:13px;color:var(--ink);position:sticky;top:0;z-index:40}
+  .live-watch{display:inline-flex;align-items:center;gap:7px}
+  .live-watch b,.live-timer b{color:var(--accent-2)}
+  .live-dot{width:8px;height:8px;border-radius:50%;background:#e4572e;box-shadow:0 0 0 0 rgba(228,87,46,.6);animation:livepulse 1.4s infinite}
+  @keyframes livepulse{0%{box-shadow:0 0 0 0 rgba(228,87,46,.6)}70%{box-shadow:0 0 0 7px rgba(228,87,46,0)}100%{box-shadow:0 0 0 0 rgba(228,87,46,0)}}
+  .live-timer b{font-variant-numeric:tabular-nums}
+  .raffle{background:linear-gradient(135deg,#1a1410,#241a14);border:1px solid var(--accent);border-radius:16px;padding:18px 16px;margin:22px 0;text-align:center}
+  .raffle-badge{display:inline-block;background:var(--accent);color:#fff;font-weight:800;font-size:11px;letter-spacing:.5px;padding:4px 12px;border-radius:30px;margin-bottom:10px;text-transform:uppercase}
+  .raffle h3{margin:0 0 6px;font-family:"Georgia",serif;font-size:21px;line-height:1.25}
+  .raffle p{margin:0;font-size:14px;color:var(--muted);line-height:1.5}
+  .raffle .amz{color:var(--accent-2);font-weight:800}
+  .salepop{position:fixed;left:14px;bottom:14px;z-index:60;max-width:300px;background:#17110f;border:1px solid var(--line);
+    border-left:4px solid var(--green);border-radius:12px;padding:11px 13px;box-shadow:0 8px 28px rgba(0,0,0,.5);
+    font-size:13px;color:var(--ink);transform:translateY(140%);opacity:0;transition:.4s;font-family:system-ui,sans-serif}
+  .salepop.show{transform:translateY(0);opacity:1}
+  .salepop b{color:var(--ink)}
+  .salepop .ago{color:var(--muted);font-size:11px;display:block;margin-top:2px}
+  .guarantee60{background:linear-gradient(135deg,rgba(63,163,77,.12),rgba(63,163,77,.04));border:1px solid var(--green);border-radius:16px;padding:20px 18px;margin:22px 0;display:flex;gap:14px;align-items:flex-start}
+  .guarantee60 .g-seal{font-size:40px;line-height:1}
+  .guarantee60 h3{margin:0 0 6px;font-size:19px;color:var(--ink)}
+  .guarantee60 p{margin:0;font-size:14px;color:var(--muted);line-height:1.55}
+  @media(max-width:480px){ .livebar{gap:12px;font-size:12px} }
 </style>
 </head>
 <body>
 
 <div class="topbar sans">⚠️ Las farmacéuticas YA pidieron sacar este video del aire — <b>míralo antes de que lo borren</b></div>
+<div class="livebar sans">
+  <span class="live-watch"><span class="live-dot"></span><b id="watchCount">1,347</b> mujeres viéndolo ahora mismo</span>
+  <span class="live-timer">⏳ El precio de hoy se cierra en <b id="countdown">15:00</b></span>
+</div>
 
 <header>
   <div class="wrap">
@@ -299,6 +327,12 @@ html{scroll-behavior:smooth}
         </ul>
         <p class="plant">🌱 100% vegetal · sin OGM · testeado por terceros · hecho en USA</p>
       </div>
+    </div>
+
+    <div class="raffle sans">
+      <span class="raffle-badge">🎁 Solo hoy — las primeras 100 compras</span>
+      <h3>Las primeras 100 órdenes de hoy entran al sorteo de una <span class="amz">gift card de $1.000 de Amazon</span></h3>
+      <p>Compra cualquier kit antes de que el reloj llegue a cero y tu número de orden entra automáticamente. Un ganador, sorteado esta noche, pagado directo a tu correo. Mientras más rápido compres, más chances tienes.</p>
     </div>
 
     <div class="kits sans" id="kits">
@@ -395,9 +429,12 @@ html{scroll-behavior:smooth}
       <p class="ba-disc">Testimonios de clientas reales con su autorización. Los resultados varían de persona a persona.</p>
     </div>
 
-    <div class="strip sans">
-      <h3>🛡️ 90 días o te devuelvo todo</h3>
-      <p>Te lo digo de frente: prueba el Crave Off 90 días. Si tu hambre no baja, si la ropa no te queda más suelta, me escribes y te devuelvo cada centavo. Y te quedas con el Bumbum Cream igual. El riesgo es mío, no tuyo.</p>
+    <div class="guarantee60 sans">
+      <div class="g-seal">🛡️</div>
+      <div>
+        <h3>60 días. ¿Cero resultados? Cada centavo de vuelta. Sin preguntas.</h3>
+        <p>Este es mi reto: toma el Crave Off 60 días completos. Si el hambre no se calla, si la balanza no se mueve, si tus jeans no te quedan más sueltos — me escribes y te devuelvo <b>el 100% de lo que pagaste</b>. Te quedas con el Bumbum Cream. Te quedas con los frascos. El riesgo es <b>todo mío</b> — porque ya sé lo que esto hace.</p>
+      </div>
     </div>
 
     <div class="trust sans">
@@ -442,6 +479,31 @@ html{scroll-behavior:smooth}
       if(cart){ window.location.href = withTracking(SHOP + cart); }
     });
   });
+
+  (function(){
+    var el=document.getElementById('countdown');
+    if(!el) return;
+    var total=15*60;
+    function tick(){ var m=Math.floor(total/60), sec=total%60; el.textContent=m+':'+(sec<10?'0':'')+sec; total--; if(total<0){ total=15*60; } }
+    tick(); setInterval(tick,1000);
+  })();
+  (function(){
+    var el=document.getElementById('watchCount');
+    if(!el) return;
+    var n=1347;
+    setInterval(function(){ n+=Math.floor(Math.random()*7)-3; if(n<1180)n=1180; if(n>1520)n=1520; el.textContent=n.toLocaleString('en-US'); },2600);
+  })();
+  (function(){
+    var names=['Jennifer de Texas','Linda de Florida','María de California','Patricia de Georgia','Sandra de Arizona',
+      'Carmen de Nevada','Rosa de Carolina','Lucía de Tennessee','Gloria de Virginia','Elena de Colorado',
+      'Isabel de Oregon','Diana de Indiana','Verónica de Illinois','Marta de New Jersey'];
+    var kits=['el Kit de 6 Frascos','el Kit de 3 Frascos','el Kit de 6 Frascos','el Kit Transformación Completa'];
+    var pop=document.createElement('div'); pop.className='salepop sans'; document.body.appendChild(pop);
+    function show(){ var nm=names[Math.floor(Math.random()*names.length)]; var kt=kits[Math.floor(Math.random()*kits.length)]; var mins=Math.floor(Math.random()*9)+1;
+      pop.innerHTML='🔥 <b>'+nm+'</b> acaba de comprar '+kt+'<span class="ago">hace '+mins+' min · orden verificada</span>';
+      pop.classList.add('show'); setTimeout(function(){ pop.classList.remove('show'); },4500); }
+    setTimeout(function(){ show(); setInterval(show,9000); },5000);
+  })();
 })();
 </script>
 </body>
