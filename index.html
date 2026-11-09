@@ -350,11 +350,6 @@
       <div class="vtoday">Hoy, solo por este video: $180</div>
     </div>
 
-    <a href="#" id="buyBtn" class="cta sans">
-      APAGAR MI HAMBRE AHORA
-      <small>Envío a toda USA · Pago 100% seguro · Garantía de 90 días</small>
-    </a>
-
     <div class="scarcity sans">🔥 El Bumbum Cream de regalo es solo para el Kit de 6 — y el lote se está agotando</div>
 
     <div class="gift-box sans">
@@ -502,19 +497,13 @@
     if(!qs) return url;
     return url + (url.indexOf('?') > -1 ? '&' : '?') + qs;
   }
-  var buyBtn = document.getElementById('buyBtn');
-  function syncBuyHref(){ if(selectedCart){ buyBtn.setAttribute('href', withTracking(SHOP + selectedCart)); } }
-  syncBuyHref();
   kits.forEach(function(k){
-    k.addEventListener('click', function(){
-      kits.forEach(function(x){ x.classList.remove('selected'); });
-      k.classList.add('selected');
-      selectedCart = k.getAttribute('data-cart');
-      syncBuyHref();
+    k.style.cursor = 'pointer';
+    var cart = k.getAttribute('data-cart');
+    k.addEventListener('click', function(e){
+      e.preventDefault();
+      if(cart){ window.location.href = withTracking(SHOP + cart); }
     });
-  });
-  buyBtn.addEventListener('click', function(e){
-    if(selectedCart){ e.preventDefault(); window.location.href = withTracking(SHOP + selectedCart); }
   });
 })();
 </script>

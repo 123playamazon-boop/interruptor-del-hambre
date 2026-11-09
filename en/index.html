@@ -350,10 +350,6 @@
       <div class="vtoday">Today, only through this video: $180</div>
     </div>
 
-    <a href="#" id="buyBtn" class="cta sans">
-      TURN OFF MY HUNGER NOW
-      <small>Ships across the USA · 100% secure payment · 90-day guarantee</small>
-    </a>
 
     <div class="scarcity sans">🔥 The free Bum Bum Cream is only in the 6-Bottle Kit — and the batch is running out</div>
 
@@ -431,27 +427,14 @@
     return url + (url.indexOf('?') > -1 ? '&' : '?') + qs;
   }
 
-  var buyBtn = document.getElementById('buyBtn');
-  function syncBuyHref(){
-    if(selectedCart){ buyBtn.setAttribute('href', withTracking(SHOP + selectedCart)); }
-  }
-  syncBuyHref(); // set initial href so the button is a real link from the start
-
+  // Clicking a kit goes straight to its Shopify checkout (no extra button).
   kits.forEach(function(k){
-    k.addEventListener('click', function(){
-      kits.forEach(function(x){ x.classList.remove('selected'); });
-      k.classList.add('selected');
-      selectedCart = k.getAttribute('data-cart');
-      syncBuyHref();
-    });
-  });
-
-  // Belt-and-suspenders: also navigate on click in case href was not yet synced.
-  buyBtn.addEventListener('click', function(e){
-    if(selectedCart){
+    k.style.cursor = 'pointer';
+    var cart = k.getAttribute('data-cart');
+    k.addEventListener('click', function(e){
       e.preventDefault();
-      window.location.href = withTracking(SHOP + selectedCart);
-    }
+      if(cart){ window.location.href = withTracking(SHOP + cart); }
+    });
   });
 })();
 </script>
