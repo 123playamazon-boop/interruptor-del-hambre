@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Hunger Switch — Turn It Off and Melt the Fat</title>
+<meta name="description" content="Women discovered a natural hunger switch that works like GLP-1 — without injections, without a prescription. Crave Off + Bum Bum Cream free gift.">
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zb1ur6ihhp");
+</script>
+<style>
+  :root{
+    --bg:#0e0b0a;
+    --card:#17110f;
+    --ink:#f6efe9;
+    --muted:#b9a99d;
+    --line:#2a211d;
+    --accent:#e4572e;      /* laranja queimado */
+    --accent-2:#f2a541;    /* dourado */
+    --green:#3fa34d;
+    --radius:16px;
+    --max:760px;
+    font-synthesis:none;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:"Georgia","Times New Roman",serif;
+    line-height:1.6;font-size:18px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
+  .sans{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+
+  /* top bar */
+  .topbar{background:#000;color:#fff;text-align:center;padding:9px 14px;font-size:13px;letter-spacing:.3px}
+  .topbar b{color:var(--accent-2)}
+
+  /* hero */
+  header{padding:30px 0 10px;text-align:center}
+  .kicker{
+    font-family:system-ui,sans-serif;text-transform:uppercase;letter-spacing:2px;
+    font-size:12.5px;color:var(--accent-2);font-weight:700;margin-bottom:14px
+  }
+  h1{
+    font-size:33px;line-height:1.18;margin:0 auto 14px;max-width:16ch;font-weight:800;
+    letter-spacing:-.5px
+  }
+  h1 .hl{color:var(--accent-2)}
+  .sub{font-size:19px;color:var(--muted);max-width:40ch;margin:0 auto 6px}
+
+  /* video */
+  .videobox{margin:22px 0 10px;border-radius:var(--radius);overflow:hidden;
+    border:1px solid var(--line);background:#000;position:relative}
+  video{width:100%;display:block;background:#000}
+
+  /* ===== VSL player custom ===== */
+  .vcover{position:absolute;inset:0;background:rgba(10,8,7,.82);backdrop-filter:blur(2px);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;transition:opacity .3s}
+  .vcover.hide{opacity:0;pointer-events:none}
+  .vcover-inner{text-align:center;padding:20px}
+  .vplay{width:84px;height:84px;border-radius:50%;background:var(--accent);margin:0 auto 18px;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(228,87,46,.5);
+    animation:vpulse 1.8s infinite}
+  .vplay::after{content:"";border-style:solid;border-width:18px 0 18px 30px;
+    border-color:transparent transparent transparent #fff;margin-left:7px}
+  @keyframes vpulse{0%,100%{transform:scale(1);box-shadow:0 8px 30px rgba(228,87,46,.5)}
+    50%{transform:scale(1.07);box-shadow:0 8px 40px rgba(228,87,46,.75)}}
+  .vcover-txt{color:#fff;font-size:20px;font-weight:800;letter-spacing:-.2px}
+  .vcover-sub{color:var(--accent-2);font-size:14.5px;margin-top:5px;font-weight:600}
+
+  /* camada de clique: pausa/retoma, bloqueia controles nativos (no adelantar) */
+  .vclick{position:absolute;inset:0;z-index:2;cursor:pointer}
+
+  /* barra de progreso */
+  .vbar{position:absolute;left:0;right:0;bottom:0;height:6px;background:rgba(255,255,255,.18);z-index:4}
+  .vbar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .25s linear}
+
+  .videohint{font-family:system-ui,sans-serif;font-size:13px;color:var(--muted);
+    text-align:center;margin:10px 0 0;display:flex;align-items:center;justify-content:center;gap:7px}
+  .pulse{width:9px;height:9px;border-radius:50%;background:var(--accent);
+    box-shadow:0 0 0 0 rgba(228,87,46,.6);animation:p 1.6s infinite}
+  @keyframes p{0%{box-shadow:0 0 0 0 rgba(228,87,46,.6)}70%{box-shadow:0 0 0 12px rgba(228,87,46,0)}100%{box-shadow:0 0 0 0 rgba(228,87,46,0)}}
+
+  /* OFFER — hidden until delay */
+  #offer{display:none;margin:26px 0 10px;animation:rise .6s ease both}
+  #offer.show{display:block}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+  .offer-head{text-align:center;margin-bottom:18px}
+  .offer-head .flash{display:inline-block;background:var(--accent);color:#fff;
+    font-family:system-ui,sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;
+    text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:14px}
+  .offer-head h2{font-size:27px;margin:0 auto 8px;max-width:20ch;line-height:1.2}
+
+  /* bridge Lean Drops -> Crave Off */
+  .bridge{background:linear-gradient(180deg,rgba(228,87,46,.12),rgba(228,87,46,.04));
+    border:1px solid rgba(228,87,46,.4);border-radius:var(--radius);padding:20px;margin:0 0 20px}
+  .bridge-badge{display:inline-block;background:var(--accent);color:#fff;font-weight:800;
+    font-size:12px;letter-spacing:.5px;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:12px}
+  .bridge p{margin:0 0 12px;font-size:15px;line-height:1.55;color:var(--ink)}
+  .bridge b{color:var(--ink)}
+
+  /* producto */
+  .product{display:flex;gap:18px;align-items:flex-start;background:var(--card);
+    border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin:18px 0}
+  .product-photo{flex:0 0 130px;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+  .product-photo img{width:100%;display:block}
+  .product-copy .pill{display:inline-block;font-size:11.5px;color:var(--accent-2);
+    border:1px solid rgba(242,165,65,.35);border-radius:999px;padding:4px 11px;margin-bottom:10px}
+  .product-copy h3{margin:0 0 7px;font-size:19px}
+  .product-copy p{margin:0 0 10px;font-size:14px;color:var(--muted);line-height:1.55}
+  .feat{list-style:none;padding:0;margin:0 0 10px}
+  .feat li{font-size:13.5px;color:var(--ink);padding:5px 0 5px 24px;position:relative;line-height:1.4}
+  .feat li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+  .feat b{color:var(--ink)}
+  .plant{font-size:12px !important;color:var(--muted) !important;margin:0 !important}
+
+  /* stack de valor */
+  .vstack{background:var(--card);border:1px dashed var(--line);border-radius:var(--radius);
+    padding:18px 20px;margin:18px 0;font-family:system-ui,sans-serif}
+  .vstack h3{margin:0 0 12px;font-size:15px;text-align:center;letter-spacing:.3px}
+  .vrow{display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;
+    border-bottom:1px dotted var(--line);font-size:14px}
+  .vrow:last-of-type{border-bottom:none}
+  .vrow .v{color:var(--muted)}
+  .vrow .v s{opacity:.7}
+  .vtotal{display:flex;justify-content:space-between;margin-top:12px;padding-top:12px;
+    border-top:2px solid var(--line);font-size:16px;font-weight:800}
+  .vtotal .big{color:var(--accent-2)}
+  .vtoday{text-align:center;margin-top:8px;font-size:14px;color:var(--green);font-weight:700}
+
+  @media(max-width:560px){
+    .product{flex-direction:column}
+    .product-photo{flex:0 0 auto;width:60%;margin:0 auto}
+  }
+
+  /* kits */
+  .kits{display:grid;gap:14px;margin:18px 0}
+  .kit{
+    background:var(--card);border:2px solid var(--line);border-radius:var(--radius);
+    padding:18px 18px 18px 18px;position:relative;cursor:pointer;transition:.18s;
+    display:flex;align-items:center;gap:16px
+  }
+  .kit:hover{border-color:var(--accent-2)}
+  .kit.best{border-color:var(--accent);box-shadow:0 0 0 4px rgba(228,87,46,.12)}
+  .kit.selected{border-color:var(--green);box-shadow:0 0 0 4px rgba(63,163,77,.18)}
+  .kit.selected::after{content:"✓";position:absolute;top:14px;right:16px;width:22px;height:22px;
+    background:var(--green);color:#fff;border-radius:50%;display:flex;align-items:center;
+    justify-content:center;font-family:system-ui,sans-serif;font-size:13px;font-weight:700}
+  .kit .tag{
+    position:absolute;top:-11px;left:18px;background:var(--accent);color:#fff;
+    font-family:system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.8px;
+    text-transform:uppercase;padding:3px 10px;border-radius:999px
+  }
+  .kit .tag.gold{background:var(--accent-2);color:#241a10}
+  .kit-img{width:82px;height:82px;flex:0 0 82px;border-radius:12px;background:#fff;
+    display:flex;align-items:center;justify-content:center;border:1px solid var(--line);overflow:hidden}
+  .kit-img img{width:100%;height:100%;object-fit:contain}
+  .kit-main{flex:1;font-family:system-ui,sans-serif}
+  .kit-main .qty{font-size:18px;font-weight:800}
+  .kit-main .desc{font-size:13.5px;color:var(--muted);margin-top:2px}
+  .kit-main .gift{font-size:13px;color:var(--green);margin-top:5px;font-weight:600}
+  .kit-price{text-align:right;font-family:system-ui,sans-serif;flex:0 0 auto}
+  .kit-price .now{font-size:22px;font-weight:800}
+  .kit-price .per{font-size:12px;color:var(--muted)}
+  .kit-price .was{font-size:13px;color:var(--muted);text-decoration:line-through}
+
+  .cta{
+    display:block;width:100%;text-align:center;font-family:system-ui,sans-serif;
+    background:linear-gradient(180deg,var(--green),#2f7d3a);color:#fff;font-weight:800;
+    font-size:20px;letter-spacing:.3px;padding:19px 18px;border:none;border-radius:14px;
+    cursor:pointer;text-decoration:none;margin-top:8px;box-shadow:0 8px 24px rgba(63,163,77,.25);
+    text-transform:uppercase;transition:.15s;animation:cta 2.2s infinite
+  }
+  .cta:hover{transform:translateY(-2px)}
+  @keyframes cta{0%,100%{transform:scale(1)}50%{transform:scale(1.015)}}
+  .cta small{display:block;font-weight:600;font-size:13px;text-transform:none;opacity:.9;margin-top:3px}
+
+  /* bonus / guarantee strips */
+  .strip{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 20px;margin:16px 0;font-family:system-ui,sans-serif}
+  .strip h3{margin:0 0 6px;font-size:16px;display:flex;align-items:center;gap:9px}
+  .strip p{margin:0;font-size:14.5px;color:var(--muted)}
+  .gift-strip{border-color:rgba(242,165,65,.4);background:linear-gradient(180deg,rgba(242,165,65,.07),transparent)}
+
+  /* gift box */
+  .gift-box{border:1px solid rgba(242,165,65,.45);border-radius:var(--radius);margin:16px 0;
+    background:linear-gradient(180deg,rgba(242,165,65,.08),transparent);overflow:hidden}
+  .gift-tag{background:var(--accent-2);color:#241a10;font-weight:800;font-size:13px;
+    letter-spacing:.3px;text-align:center;padding:8px 14px}
+  .gift-inner{display:flex;gap:16px;align-items:flex-start;padding:18px}
+  .gift-photo{flex:0 0 120px;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+  .gift-photo img{width:100%;display:block}
+  .gift-copy h3{margin:0 0 7px;font-size:17px;line-height:1.25}
+  .gift-copy p{margin:0 0 10px;font-size:13.5px;color:var(--muted);line-height:1.5}
+  @media(max-width:560px){
+    .gift-inner{flex-direction:column}
+    .gift-photo{flex:0 0 auto;width:55%;margin:0 auto}
+  }
+
+  .trust{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:20px 0;
+    font-family:system-ui,sans-serif;font-size:12.5px;color:var(--muted)}
+  .trust span{border:1px solid var(--line);border-radius:999px;padding:6px 13px}
+
+  /* antes y después */
+  .ba-section{margin:24px 0 10px}
+  .ba-title{text-align:center;font-family:"Georgia",serif;font-size:23px;margin:0 0 4px}
+  .ba-sub{text-align:center;font-family:system-ui,sans-serif;font-size:14.5px;color:var(--muted);margin:0 0 16px}
+  .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .ba-card{margin:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .ba-card img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover}
+  .ba-card figcaption{padding:10px 12px;font-family:system-ui,sans-serif;font-size:12.5px;color:var(--muted);line-height:1.4}
+  .ba-card figcaption b{color:var(--ink);display:inline}
+  .ba-card .stars{display:block;color:var(--accent-2);font-size:12px;letter-spacing:1px;margin-bottom:3px}
+  .ba-disc{text-align:center;font-family:system-ui,sans-serif;font-size:11px;color:#6f635a;margin:14px 0 0;font-style:italic}
+  @media(max-width:560px){ .ba-grid{grid-template-columns:1fr 1fr} }
+
+  .scarcity{text-align:center;font-family:system-ui,sans-serif;font-size:14px;
+    color:var(--accent-2);font-weight:700;margin:14px 0}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0 50px;
+    font-family:system-ui,sans-serif;font-size:11.5px;color:#6f635a;text-align:center;line-height:1.7}
+  footer a{color:#8a7d73}
+
+  @media(max-width:560px){
+    h1{font-size:27px}
+    .kit{flex-wrap:wrap}
+    .kit-price{width:100%;text-align:left;border-top:1px solid var(--line);padding-top:10px;margin-top:4px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar sans">⚠️ Big Pharma ALREADY asked to take this video down — <b>watch it before it's gone</b></div>
+
+<header>
+  <div class="wrap">
+    <div class="kicker sans">They call it "The Hunger Switch"</div>
+    <h1>There's a <span class="hl">hunger switch</span> inside you. Turn it off, and the fat melts on its own.</h1>
+    <p class="sub sans">Women in their 40s, 50s and even 60s are losing up to 35 pounds without diets, without the gym, and without the $1,000-a-month injection. They just flipped a switch nobody ever told them about.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="videobox" id="player">
+    <video id="vsl" playsinline preload="metadata" poster="assets/poster.jpg">
+      <source src="assets/vsl.mp4" type="video/mp4">
+      Your browser does not support the video.
+    </video>
+
+    <!-- Cover: press play -->
+    <div class="vcover" id="vcover">
+      <div class="vcover-inner">
+        <div class="vplay"></div>
+        <div class="vcover-txt sans">Your video is ready</div>
+        <div class="vcover-sub sans">Click to play with sound 🔊</div>
+      </div>
+    </div>
+
+    <!-- Overlay de clique pra pausar (sem controles nativos = no se puede adelantar) -->
+    <div class="vclick" id="vclick"></div>
+
+    <!-- Barra de progreso -->
+    <div class="vbar"><div class="vbar-fill" id="vbarFill"></div></div>
+  </div>
+  <p class="videohint sans"><span class="pulse"></span> Turn up the volume — pay attention, the video can't be fast-forwarded</p>
+
+  <!-- ============ OFERTA (aparece con delay) ============ -->
+  <section id="offer">
+
+    <!-- ===== Lean Drops -> Crave Off bridge ===== -->
+    <div class="bridge sans">
+      <div class="bridge-badge">⚠️ Important update before you order</div>
+      <p><b>The Lean Drops you just saw in the video are SOLD OUT.</b> Demand blew through every bottle we had — and honestly, we're not restocking them.</p>
+      <p>Because we built something stronger. Meet <b style="color:var(--accent-2)">Crave Off</b> — the same wild-açaí breakthrough, but <b>concentrated into capsules that hit harder and last longer</b> than the drops ever did. Same switch. More power. No eyedropper, no mess.</p>
+      <p style="margin-bottom:0"><b>If you came here for the drops, this is the upgrade.</b> And it's the only place you can still get it at today's price.</p>
+    </div>
+
+    <div class="offer-head">
+      <span class="flash sans">⚡ Switch unlocked — today only</span>
+      <h2>Turn off your hunger with <span style="color:var(--accent-2)">Crave Off</span>.</h2>
+      <p class="sub sans" style="font-size:16px">The stronger upgrade to the Lean Drops. And if you go for the full transformation (6-bottle kit), the <b style="color:var(--accent-2)">Bum Bum Cream</b> firming cream is FREE — melt the fat and stay firm at the same time. Pick your kit below.</p>
+    </div>
+
+    <!-- ===== Producto: foto + descripción (voz agresiva) ===== -->
+    <div class="product sans">
+      <div class="product-photo"><img src="assets/craveoff-3.jpg" alt="It's Brazilian Crave Off"></div>
+      <div class="product-copy">
+        <div class="pill">🇧🇷 It's Brazilian · 60 capsules · 100% natural</div>
+        <h3>This is Crave Off — stronger than the drops.</h3>
+        <p>Not another miracle pill. It's wild Amazonian açaí — the same breakthrough behind the Lean Drops, now <b>concentrated into a capsule that hits harder.</b> It flattens the blood-sugar spike after you eat. That crash is what sends you raiding the pantry at 3 PM. No spike, no crash. No crash, no hunger. Dead simple.</p>
+        <ul class="feat">
+          <li><b>Wild Amazonian açaí</b> — smooths the spike that triggers cravings</li>
+          <li><b>Green tea, garcinia &amp; gymnema</b> — quiet the hunger between meals</li>
+          <li><b>Steady all-day energy</b> — no afternoon crash</li>
+          <li><b>2 capsules a day.</b> Most feel the cravings go quiet in 1–2 weeks</li>
+        </ul>
+        <p class="plant">🌱 100% plant-based · non-GMO · third-party tested · made in USA</p>
+      </div>
+    </div>
+
+    <div class="kits sans">
+      <!-- KIT 1 -->
+      <label class="kit" data-cart="/cart/53981685842209:1">
+        <div class="kit-img"><img src="assets/craveoff-1.jpg" alt="Crave Off 1 bottle"></div>
+        <div class="kit-main">
+          <div class="qty">1 Bottle · Just trying</div>
+          <div class="desc">30 days — to feel the hunger drop</div>
+          <div class="gift">+ The Hunger Switch Guide (free)</div>
+        </div>
+        <div class="kit-price">
+          <div class="was">$79</div>
+          <div class="now">$49</div>
+          <div class="per">$49 / bottle</div>
+        </div>
+      </label>
+
+      <!-- KIT 3 -->
+      <label class="kit" data-cart="/cart/54450291048737:1">
+        <div class="kit-img"><img src="assets/craveoff-3.jpg" alt="Crave Off 3 bottles"></div>
+        <div class="kit-main">
+          <div class="qty">3 Bottles · The combo that works</div>
+          <div class="desc">90 days — the real time to watch the mirror change</div>
+          <div class="gift">+ The Hunger Switch Guide (free)</div>
+        </div>
+        <div class="kit-price">
+          <div class="was">$237</div>
+          <div class="now">$117</div>
+          <div class="per">just $39 / bottle</div>
+        </div>
+      </label>
+
+      <!-- KIT 6 - BEST + GIFT -->
+      <label class="kit best selected" data-cart="/cart/54450291081505:1,53027149480225:1?discount=BUMBUMFREE">
+        <span class="tag">★ The only one with a GIFT</span>
+        <div class="kit-img"><img src="assets/craveoff-3.jpg" alt="Crave Off 6 bottles"></div>
+        <div class="kit-main">
+          <div class="qty">6 Bottles · Full transformation</div>
+          <div class="desc">180 days — and never gain it back</div>
+          <div class="gift">🎁 + Bum Bum Cream FREE ($49) + free Guide</div>
+        </div>
+        <div class="kit-price">
+          <div class="was">$474</div>
+          <div class="now">$180</div>
+          <div class="per">just $30 / bottle</div>
+        </div>
+      </label>
+    </div>
+
+    <!-- ===== Value stack (Hormozi) ===== -->
+    <div class="vstack">
+      <h3>6-Bottle Kit — here's everything you get today:</h3>
+      <div class="vrow"><span>Crave Off — 6 bottles (180 days)</span><span class="v">$474</span></div>
+      <div class="vrow"><span>Bum Bum Cream firming cream — <b style="color:var(--green)">GIFT</b></span><span class="v"><s>$49</s> FREE</span></div>
+      <div class="vrow"><span>The Hunger Switch Guide (PDF)</span><span class="v"><s>$29</s> FREE</span></div>
+      <div class="vrow"><span>Shipping across the USA</span><span class="v"><s>$9.90</s> FREE</span></div>
+      <div class="vtotal"><span>Real value:</span><span class="big">$561.90</span></div>
+      <div class="vtoday">Today, only through this video: $180</div>
+    </div>
+
+    <a href="#" id="buyBtn" class="cta sans">
+      TURN OFF MY HUNGER NOW
+      <small>Ships across the USA · 100% secure payment · 90-day guarantee</small>
+    </a>
+
+    <div class="scarcity sans">🔥 The free Bum Bum Cream is only in the 6-Bottle Kit — and the batch is running out</div>
+
+    <div class="gift-box sans">
+      <div class="gift-tag">🎁 Exclusive gift with the 6-Bottle Kit — $49 value, FREE</div>
+      <div class="gift-inner">
+        <div class="gift-photo"><img src="assets/bumbum.jpg" alt="It's Brazilian Bum Bum Cream"></div>
+        <div class="gift-copy">
+          <h3>Bum Bum Cream — the Brazilian celebrities' secret</h3>
+          <p>When you lose weight fast, the skin is left behind. It's every woman's nightmare when she slims down. That's why, <b style="color:var(--accent-2)">only in the 6-Bottle Kit</b>, I give it to you: Bum Bum Cream firms the skin while Crave Off melts the fat.</p>
+          <ul class="feat">
+            <li><b>Goodbye cellulite</b> — breaks up the dimples on thighs and glutes</li>
+            <li><b>Fades stretch marks</b> — firms and evens out marked skin</li>
+            <li><b>Firmer, tighter skin</b> — no sagging when you slim down</li>
+            <li><b>Smooths marks and texture</b> — smooth, even, bikini-ready skin</li>
+          </ul>
+          <p class="plant">8 FL OZ · 237 mL · the Brazilian celebrities' choice</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Antes y después (prueba social) ===== -->
+    <div class="ba-section sans">
+      <h3 class="ba-title">Real women. Real results.</h3>
+      <p class="ba-sub">This is what happens when hunger stops running your life 👇</p>
+      <div class="ba-grid">
+        <figure class="ba-card"><img src="assets/ba/ba3.jpg" alt="before and after"><figcaption><span class="stars">★★★★★</span><b>Carla, 42</b> — "Lost 40 lbs. Back at the gym feeling like a new woman."</figcaption></figure>
+        <figure class="ba-card"><img src="assets/ba/ba8.jpg" alt="before and after"><figcaption><span class="stars">★★★★★</span><b>Daniela, 38</b> — "Even the cellulite on my legs is gone."</figcaption></figure>
+        <figure class="ba-card"><img src="assets/ba/ba2.jpg" alt="before and after"><figcaption><span class="stars">★★★★★</span><b>Fernanda, 35</b> — "No more raiding the kitchen at 3 PM. Dropped 3 sizes."</figcaption></figure>
+        <figure class="ba-card"><img src="assets/ba/ba5.jpg" alt="before and after"><figcaption><span class="stars">★★★★★</span><b>Mariana, 40</b> — "After 2 kids, I'm back in a bikini with no fear."</figcaption></figure>
+        <figure class="ba-card"><img src="assets/ba/ba1.jpg" alt="before and after"><figcaption><span class="stars">★★★★★</span><b>Sofia, 29</b> — "My favorite jeans button again. I cried."</figcaption></figure>
+        <figure class="ba-card"><img src="assets/ba/ba6.jpg" alt="before and after"><figcaption><span class="stars">★★★★★</span><b>Patricia, 47</b> — "At my age I'd given up on everything. I was wrong."</figcaption></figure>
+      </div>
+      <p class="ba-disc">Testimonials from real customers, used with permission. Results vary from person to person.</p>
+    </div>
+
+    <div class="strip sans">
+      <h3>🛡️ 90 days or your money back</h3>
+      <p>I'll tell you straight: try Crave Off for 90 days. If your hunger doesn't drop, if your clothes don't fit looser, you email me and I refund every penny. And you keep the Bum Bum Cream anyway. The risk is mine, not yours.</p>
+    </div>
+
+    <div class="trust sans">
+      <span>✓ Natural formula</span>
+      <span>✓ No injections</span>
+      <span>✓ No prescription</span>
+      <span>✓ Fast US shipping</span>
+    </div>
+  </section>
+
+</div>
+
+<footer class="sans">
+  <div class="wrap">
+    <p>This product is not intended to diagnose, treat, cure or prevent any disease. Results vary from person to person. These statements have not been evaluated by the FDA. Consult your doctor before starting any supplement.</p>
+    <p>© 2026 It's Brazilian · <a href="#">Terms</a> · <a href="#">Privacy</a> · <a href="#">Contact</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var video  = document.getElementById('vsl');
+  var offer  = document.getElementById('offer');
+  var cover  = document.getElementById('vcover');
+  var vclick = document.getElementById('vclick');
+  var barFill= document.getElementById('vbarFill');
+
+  // Momento (en segundos) en que el video habla del precio/oferta.
+  // VSL dura ~2845s; la oferta se menciona cerca del min 38.
+  var REVEAL_AT = 2280; // 38:00  <-- ajústalo tras revisar el video
+
+  var revealed = false;
+  function reveal(){
+    if(revealed) return;
+    revealed = true;
+    offer.classList.add('show');
+    offer.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  // ===== Capa "aperte play" =====
+  cover.addEventListener('click', function(){
+    video.muted = false;
+    video.play();
+    cover.classList.add('hide');
+  });
+
+  // ===== Clique no vídeo: pausa / retoma (sin controles nativos) =====
+  vclick.addEventListener('click', function(){
+    if(cover.classList.contains('hide')){
+      if(video.paused){ video.play(); } else { video.pause(); }
+    }
+  });
+
+  // ===== Anti-adelantar: no se puede saltar hacia adelante =====
+  var maxWatched = 0;
+  function enforceNoSkip(){
+    // si de cualquier forma el tiempo saltó más allá de lo visto, lo devuelve
+    if(video.currentTime > maxWatched + 1.5){
+      video.currentTime = maxWatched;
+      return true;
+    }
+    return false;
+  }
+  video.addEventListener('timeupdate', function(){
+    if(enforceNoSkip()) return;
+    // registra el punto máximo realmente visto
+    if(video.currentTime > maxWatched){ maxWatched = video.currentTime; }
+    // barra de progreso
+    if(video.duration){ barFill.style.width = (maxWatched / video.duration * 100) + '%'; }
+    // revela la oferta
+    if(maxWatched >= REVEAL_AT) reveal();
+  });
+  video.addEventListener('seeking', enforceNoSkip);
+  video.addEventListener('seeked', enforceNoSkip);
+
+  // ====== Selección de kit + checkout ======
+  var SHOP = 'https://itsbrazilianusa.com';
+  var kits = document.querySelectorAll('.kit');
+  var selectedCart = document.querySelector('.kit.selected')
+      ? document.querySelector('.kit.selected').getAttribute('data-cart')
+      : (kits[0] ? kits[0].getAttribute('data-cart') : null);
+
+  kits.forEach(function(k){
+    k.addEventListener('click', function(e){
+      e.preventDefault();
+      kits.forEach(function(x){ x.classList.remove('selected'); });
+      k.classList.add('selected');
+      selectedCart = k.getAttribute('data-cart');
+    });
+  });
+
+  // Reenvía los parámetros de tracking (utm, rtkcid, fbclid...) al checkout
+  function withTracking(url){
+    var qs = window.location.search.replace(/^\?/, '');
+    if(!qs) return url;
+    return url + (url.indexOf('?') > -1 ? '&' : '?') + qs;
+  }
+
+  document.getElementById('buyBtn').addEventListener('click', function(e){
+    e.preventDefault();
+    if(!selectedCart) return;
+    window.location.href = withTracking(SHOP + selectedCart);
+  });
+})();
+</script>
+</body>
+</html>
