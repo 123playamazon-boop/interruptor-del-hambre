@@ -259,6 +259,7 @@
 
     <!-- Overlay de clique pra pausar (sem controles nativos = no se puede adelantar) -->
     <div class="vclick" id="vclick"></div>
+    <button id="soundBtn" style="display:none;position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:5;background:#e85d2a;color:#fff;border:none;border-radius:30px;padding:12px 22px;font-size:15px;font-weight:800;align-items:center;gap:8px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.4)">🔊 Tocar con sonido</button>
 
     <!-- Barra de progreso -->
     <div class="vbar"><div class="vbar-fill" id="vbarFill"></div></div>
@@ -432,15 +433,33 @@
   }
 
   // ===== Capa "aperte play" =====
-  function startVideo(){
-    video.muted = true;
-    var p = video.play();
+  var started = false;
+  function startVideo(e){
+    if(e){ e.preventDefault(); }
+    if(started) return;
+    started = true;
+    video.muted = false;
+    video.volume = 1;
     cover.classList.add('hide');
-    function unmute(){ video.muted = false; video.volume = 1; }
-    if(p && p.then){ p.then(unmute).catch(function(){ unmute(); }); } else { unmute(); }
+    var p = video.play();
+    if(p && p.catch){
+      p.catch(function(){
+        video.muted = true;
+        video.play();
+        var sb = document.getElementById('soundBtn');
+        if(sb){ sb.style.display='flex'; }
+      });
+    }
   }
   cover.addEventListener('click', startVideo);
-  cover.addEventListener('touchstart', function(e){ e.preventDefault(); startVideo(); }, {passive:false});
+  cover.addEventListener('touchend', startVideo, {passive:false});
+  var soundBtn = document.getElementById('soundBtn');
+  if(soundBtn){
+    soundBtn.addEventListener('click', function(){
+      video.muted = false; video.volume = 1; video.play();
+      soundBtn.style.display='none';
+    });
+  }
 
   // ===== Clique no vídeo: pausa / retoma (sin controles nativos) =====
   vclick.addEventListener('click', function(){

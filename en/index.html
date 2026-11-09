@@ -267,6 +267,7 @@
 
     <!-- Overlay de clique pra pausar (sem controles nativos = no se puede adelantar) -->
     <div class="vclick" id="vclick"></div>
+    <button id="soundBtn" style="display:none;position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:5;background:#e85d2a;color:#fff;border:none;border-radius:30px;padding:12px 22px;font-size:15px;font-weight:800;align-items:center;gap:8px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.4)">🔊 Tap for sound</button>
 
     <!-- Barra de progreso -->
     <div class="vbar"><div class="vbar-fill" id="vbarFill"></div></div>
@@ -449,18 +450,38 @@
   }
 
   // ===== Capa "aperte play" =====
-  function startVideo(){
-    // Play muted first — never blocked, starts instantly even on mobile.
-    video.muted = true;
-    var p = video.play();
+  var started = false;
+  function startVideo(e){
+    if(e){ e.preventDefault(); }
+    if(started) return;           // guard against touch+click double-fire
+    started = true;
+    // Unmute SYNCHRONOUSLY, inside the real user gesture (required by iOS Safari),
+    // then play. On iOS, unmuting later (in a .then) pauses the video.
+    video.muted = false;
+    video.volume = 1;
     cover.classList.add('hide');
-    // Unmute in the same user gesture; if the browser still blocks sound,
-    // show a one-tap "unmute" hint instead of freezing the whole player.
-    function unmute(){ video.muted = false; video.volume = 1; }
-    if(p && p.then){ p.then(unmute).catch(function(){ unmute(); }); } else { unmute(); }
+    var p = video.play();
+    if(p && p.catch){
+      p.catch(function(){
+        // If the browser refused sound, fall back to muted autoplay so it still rolls,
+        // and reveal a one-tap sound button.
+        video.muted = true;
+        video.play();
+        var sb = document.getElementById('soundBtn');
+        if(sb){ sb.style.display='flex'; }
+      });
+    }
   }
   cover.addEventListener('click', startVideo);
-  cover.addEventListener('touchstart', function(e){ e.preventDefault(); startVideo(); }, {passive:false});
+  cover.addEventListener('touchend', startVideo, {passive:false});
+  // One-tap unmute fallback button
+  var soundBtn = document.getElementById('soundBtn');
+  if(soundBtn){
+    soundBtn.addEventListener('click', function(){
+      video.muted = false; video.volume = 1; video.play();
+      soundBtn.style.display='none';
+    });
+  }
 
   // ===== Clique no vídeo: pausa / retoma (sin controles nativos) =====
   vclick.addEventListener('click', function(){
