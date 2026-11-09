@@ -89,7 +89,7 @@
   @keyframes p{0%{box-shadow:0 0 0 0 rgba(228,87,46,.6)}70%{box-shadow:0 0 0 12px rgba(228,87,46,0)}100%{box-shadow:0 0 0 0 rgba(228,87,46,0)}}
 
   /* OFFER — hidden until delay */
-  #offer{display:none;margin:26px 0 10px;animation:rise .6s ease both}
+  #offer{display:block;margin:26px 0 10px;animation:rise .6s ease both}
   #offer.show{display:block}
   @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
@@ -243,26 +243,9 @@
 <div class="wrap">
 
   <div class="videobox" id="player">
-    <video id="vsl" playsinline preload="auto" poster="assets/poster.jpg">
-      <source src="assets/vsl.mp4" type="video/mp4">
-      Tu navegador no soporta el video.
-    </video>
-
-    <!-- Capa: aperte play -->
-    <div class="vcover" id="vcover">
-      <div class="vcover-inner">
-        <div class="vplay"></div>
-        <div class="vcover-txt sans">Tu video ya está listo</div>
-        <div class="vcover-sub sans">Haz clic para reproducir con sonido 🔊</div>
-      </div>
-    </div>
-
-    <!-- Overlay de clique pra pausar (sem controles nativos = no se puede adelantar) -->
-    <div class="vclick" id="vclick"></div>
-    <button id="soundBtn" style="display:none;position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:5;background:#e85d2a;color:#fff;border:none;border-radius:30px;padding:12px 22px;font-size:15px;font-weight:800;align-items:center;gap:8px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.4)">🔊 Tocar con sonido</button>
-
-    <!-- Barra de progreso -->
-    <div class="vbar"><div class="vbar-fill" id="vbarFill"></div></div>
+    <vturb-smartplayer id="vid-6af22f93dda819926d33ffc9" style="display:block;margin:0 auto;width:100%;max-width:400px;"><div class="vturb-player-placeholder" style="position:relative;width:100%;padding:56.25% 0 0;z-index:0;background-color:black;"></div></vturb-smartplayer>
+    <script type="text/javascript">var s=document.createElement("script");s.src="https://scripts.converteai.net/1f5abc79-087e-4a72-9ca1-4e5ee32cc991/players/6af22f93dda819926d33ffc9/v4/player.js",s.async=!0,document.head.appendChild(s);</script>
+  </div></div>
   </div>
   <p class="videohint sans"><span class="pulse"></span> Sube el volumen — presta atención, el video no se puede adelantar</p>
 
@@ -409,81 +392,8 @@
 
 <script>
 (function(){
-  var video  = document.getElementById('vsl');
   var offer  = document.getElementById('offer');
-  var cover  = document.getElementById('vcover');
-  var vclick = document.getElementById('vclick');
-  var barFill= document.getElementById('vbarFill');
-
-  // Momento (en segundos) en que el video habla del precio/oferta.
-  // VSL dura ~2845s; la oferta se menciona cerca del min 38.
-  var REVEAL_AT = 2280; // 38:00  <-- ajústalo tras revisar el video
-
-  var revealed = false;
-  function reveal(){
-    if(revealed) return;
-    revealed = true;
-    offer.classList.add('show');
-    offer.scrollIntoView({behavior:'smooth', block:'start'});
-  }
-
-  // ===== Capa "aperte play" =====
-  var started = false;
-  function startVideo(e){
-    if(e){ e.preventDefault(); }
-    if(started) return;
-    started = true;
-    video.muted = false;
-    video.volume = 1;
-    cover.classList.add('hide');
-    var p = video.play();
-    if(p && p.catch){
-      p.catch(function(){
-        video.muted = true;
-        video.play();
-        var sb = document.getElementById('soundBtn');
-        if(sb){ sb.style.display='flex'; }
-      });
-    }
-  }
-  cover.addEventListener('click', startVideo);
-  cover.addEventListener('touchend', startVideo, {passive:false});
-  var soundBtn = document.getElementById('soundBtn');
-  if(soundBtn){
-    soundBtn.addEventListener('click', function(){
-      video.muted = false; video.volume = 1; video.play();
-      soundBtn.style.display='none';
-    });
-  }
-
-  // ===== Clique no vídeo: pausa / retoma (sin controles nativos) =====
-  vclick.addEventListener('click', function(){
-    if(cover.classList.contains('hide')){
-      if(video.paused){ video.play(); } else { video.pause(); }
-    }
-  });
-
-  // ===== Anti-adelantar: no se puede saltar hacia adelante =====
-  var maxWatched = 0;
-  function enforceNoSkip(){
-    // si de cualquier forma el tiempo saltó más allá de lo visto, lo devuelve
-    if(video.currentTime > maxWatched + 1.5){
-      video.currentTime = maxWatched;
-      return true;
-    }
-    return false;
-  }
-  video.addEventListener('timeupdate', function(){
-    if(enforceNoSkip()) return;
-    // registra el punto máximo realmente visto
-    if(video.currentTime > maxWatched){ maxWatched = video.currentTime; }
-    // barra de progreso
-    if(video.duration){ barFill.style.width = (maxWatched / video.duration * 100) + '%'; }
-    // revela la oferta
-    if(maxWatched >= REVEAL_AT) reveal();
-  });
-  video.addEventListener('seeking', enforceNoSkip);
-  video.addEventListener('seeked', enforceNoSkip);
+  if(offer){ offer.classList.add('show'); }
 
   // ====== Selección de kit + checkout ======
   var SHOP = 'https://itsbrazilianusa.com';
