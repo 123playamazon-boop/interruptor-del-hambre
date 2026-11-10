@@ -340,6 +340,50 @@ html{scroll-behavior:smooth}
   .dtc-ingredients li::before{content:"🌿";position:absolute;left:0;top:0}
   .dtc-pull{border-left:3px solid var(--accent);padding:4px 0 4px 16px;margin:20px 0;font-family:var(--serif);font-size:20px;line-height:1.35;font-weight:700;color:var(--ink);font-style:italic}
   @media(max-width:600px){.dtc h2{font-size:23px}.dtc h3{font-size:19px}.dtc p{font-size:15.5px}.dtc-grid{grid-template-columns:1fr}}
+  /* ===== GLP-1 angle + timeline + science (awareness, dentro da DTC) ===== */
+  .glp{background:linear-gradient(180deg,rgba(204,0,0,.06),rgba(204,0,0,.02));border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;padding:20px 20px;margin:26px 0}
+  .glp .kick{font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+  .glp h3{font-family:var(--serif);font-size:23px;line-height:1.18;font-weight:900;color:var(--ink);margin:0 0 12px;letter-spacing:-.3px}
+  .glp p{font-family:var(--sans);font-size:15.5px;line-height:1.6;color:var(--ink);margin:0 0 12px}
+  .glp p:last-child{margin:0}
+  .glp .em{color:var(--accent-2);font-weight:700}
+  .glp .big{font-family:var(--serif);font-weight:800;font-style:italic;font-size:18px;line-height:1.35;color:var(--ink);margin:14px 0}
+  /* timeline */
+  .tl{margin:28px 0}
+  .tl h3{font-family:var(--serif);font-size:24px;font-weight:900;color:var(--ink);margin:0 0 4px;letter-spacing:-.3px}
+  .tl .tl-sub{font-family:var(--sans);font-size:14px;color:var(--muted);margin:0 0 18px}
+  .tl-row{display:flex;gap:14px;position:relative;padding:0 0 20px 0}
+  .tl-row:not(:last-child)::before{content:"";position:absolute;left:19px;top:34px;bottom:-4px;width:2px;background:var(--line)}
+  .tl-dot{flex:0 0 40px;width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--sans);font-weight:800;font-size:11px;line-height:1.05;display:flex;align-items:center;justify-content:center;text-align:center;z-index:1}
+  .tl-dot.g{background:var(--green)}
+  .tl-dot.gold{background:var(--accent-2)}
+  .tl-body{flex:1;padding-top:1px}
+  .tl-body h4{font-family:var(--sans);font-size:15.5px;font-weight:800;color:var(--ink);margin:0 0 4px}
+  .tl-body p{font-family:var(--sans);font-size:14.5px;line-height:1.5;color:var(--muted);margin:0}
+  /* animated chart */
+  .chartwrap{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 16px 12px;margin:20px 0}
+  .chartwrap .ct{font-family:var(--sans);font-size:13px;font-weight:700;color:var(--ink);text-align:center;margin:0 0 2px}
+  .chartwrap .cs{font-family:var(--sans);font-size:11.5px;color:var(--muted);text-align:center;margin:0 0 12px}
+  .chartwrap svg{width:100%;height:auto;display:block;overflow:visible}
+  .chartwrap .cnote{font-family:var(--sans);font-size:10.5px;color:var(--muted);text-align:center;margin:8px 0 0;font-style:italic}
+  .cl-path{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+  .cl-area{fill:var(--accent);opacity:.08}
+  .cl-dot{fill:#fff;stroke:var(--accent);stroke-width:2.5}
+  .cl-lab{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .cl-val{font-family:var(--sans);font-size:11px;font-weight:800;fill:var(--accent)}
+  .bar-g rect{fill:var(--accent)}
+  .bar-g .bl{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+  .bar-g .bv{font-family:var(--sans);font-size:11px;font-weight:800;fill:var(--ink)}
+  /* science */
+  .sci{margin:26px 0}
+  .sci h3{font-family:var(--serif);font-size:24px;font-weight:900;color:var(--ink);margin:0 0 4px;letter-spacing:-.3px}
+  .sci .sci-sub{font-family:var(--sans);font-size:14px;color:var(--muted);margin:0 0 16px}
+  .sci-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 11px}
+  .sci-card .sh{font-family:var(--sans);font-size:14.5px;font-weight:800;color:var(--ink);margin:0 0 5px}
+  .sci-card .sb{font-family:var(--sans);font-size:13.5px;line-height:1.5;color:var(--muted);margin:0}
+  .sci-card .cite{font-family:var(--sans);font-size:11.5px;color:var(--accent-2);margin:6px 0 0;font-weight:600}
+  .sci-foot{font-family:var(--sans);font-size:11.5px;color:var(--muted);line-height:1.45;margin:10px 0 0;font-style:italic}
+  @media(max-width:600px){.glp h3,.tl h3,.sci h3{font-size:20px}.glp p{font-size:15px}}
 </style>
 </head>
 <body>
@@ -435,6 +479,91 @@ html{scroll-behavior:smooth}
       <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/0992/9687/0689/files/All-DayWellnessRoutineInfographic.png?v=1792541529" alt="All-day wellness routine with Crave Off">
       <figcaption>A simple all-day routine — steady energy, quieter cravings.</figcaption>
     </figure>
+
+
+    <!-- ===== GLP-1 / peptide angle (agressivo, Amanda) ===== -->
+    <div class="glp">
+      <p class="kick">If you've looked into the weight-loss shots</p>
+      <h3>Everyone's paying $1,000 a month for an injection that does one thing — turns off the food noise</h3>
+      <p>That's the real secret nobody says out loud. Ozempic, Wegovy, the compounded "peptides" — strip away the hype and they all work through the same door: they quiet the signal in your brain that screams for sugar at 3 p.m. and raids the fridge at 10. <span class="em">Less food noise. That's the whole trick.</span></p>
+      <p class="big">"So the real question isn't 'how do I get the shot' — it's 'how do I quiet that same food noise without a needle, a prescription, or $1,000 a month?'"</p>
+      <p>That's exactly the lane Crave Off was built for. Not a drug. Not a knockoff peptide. A plant-based way to turn the volume down on cravings — the same food noise the injections target — <span class="em">from the pantry, not the pharmacy.</span> No needles. No doctor's office. No monthly subscription that ends the day you stop paying.</p>
+      <p>And here's the part the shot can't give you: when you taper off a GLP-1, the cravings come roaring back — because the drug was never fixing the craving, just muting it while you paid. Crave Off works <b>with</b> your biology, so you're building the habit of quieter afternoons, not renting it.</p>
+    </div>
+
+    <!-- ===== Timeline Dia 1 -> 3 meses ===== -->
+    <div class="tl">
+      <h3>Day 1 to 90: what quieter cravings actually look like</h3>
+      <p class="tl-sub">Based on how most women describe the change. Individual results vary.</p>
+
+      <div class="tl-row">
+        <div class="tl-dot">DAY<br>1–3</div>
+        <div class="tl-body"><h4>The first quiet afternoon</h4><p>Two capsules a day. Within the first few days most women notice the 3 p.m. pull to the pantry is… softer. Not gone — softer. The first time you walk past the snack drawer without a fight, you'll feel it.</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-dot">WEEK<br>1–2</div>
+        <div class="tl-body"><h4>The food noise drops</h4><p>This is where it clicks. The late-night "just one more" starts losing its grip. You finish dinner and actually feel finished. Steadier energy through the afternoon — no 4 p.m. crash begging for sugar.</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-dot g">WEEK<br>3–6</div>
+        <div class="tl-body"><h4>The scale starts moving</h4><p>Nothing magic happened — you just stopped eating on autopilot. When the cravings go quiet, the extra few hundred calories a day go with them. Clothes fit differently first. The number follows.</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-dot gold">MONTH<br>2–3</div>
+        <div class="tl-body"><h4>The new normal</h4><p>By now it's not willpower anymore — it's just how you eat. The woman who used to "lose control" at night doesn't think about it. That's the difference between muting cravings and actually quieting them: this one you keep.</p></div>
+      </div>
+
+      <!-- animated line chart -->
+      <div class="chartwrap">
+        <p class="ct">Cravings vs. the first 90 days</p>
+        <p class="cs">How women describe their daily craving intensity over time</p>
+        <svg viewBox="0 0 320 170" role="img" aria-label="Craving intensity falling from day 1 to month 3" data-chart="line">
+          <polygon class="cl-area" points="20,30 20,135 300,135" data-area></polygon>
+          <polyline class="cl-path" points="20,30 90,55 160,95 230,118 300,130" data-line></polyline>
+          <circle class="cl-dot" cx="20" cy="30" r="4" data-d></circle>
+          <circle class="cl-dot" cx="90" cy="55" r="4" data-d></circle>
+          <circle class="cl-dot" cx="160" cy="95" r="4" data-d></circle>
+          <circle class="cl-dot" cx="230" cy="118" r="4" data-d></circle>
+          <circle class="cl-dot" cx="300" cy="130" r="4" data-d></circle>
+          <text class="cl-lab" x="20" y="152" text-anchor="start">Day 1</text>
+          <text class="cl-lab" x="90" y="152" text-anchor="middle">Wk 1</text>
+          <text class="cl-lab" x="160" y="152" text-anchor="middle">Wk 3</text>
+          <text class="cl-lab" x="230" y="152" text-anchor="middle">Wk 6</text>
+          <text class="cl-lab" x="300" y="152" text-anchor="end">Mo 3</text>
+          <text class="cl-val" x="20" y="22" text-anchor="start">High</text>
+          <text class="cl-val" x="300" y="122" text-anchor="end">Quiet</text>
+        </svg>
+        <p class="cnote">Illustrative of self-reported craving intensity, not a clinical measurement.</p>
+      </div>
+    </div>
+
+    <!-- ===== Pesquisa científica (honesta, ingredientes) ===== -->
+    <div class="sci">
+      <h3>The science behind each ingredient</h3>
+      <p class="sci-sub">We don't cite studies on "Crave Off" — we cite the real, published research on what's inside it.</p>
+
+      <div class="sci-card">
+        <p class="sh">🌿 Gymnema sylvestre — the sugar-craving killer</p>
+        <p class="sb">In a published human trial, people who took Gymnema reported a <b>measurable drop in their desire for high-sugar sweet foods</b> — it literally blunts the brain's reward from sweetness. This is the closest thing to a "craving off switch" in the botanical world.</p>
+        <p class="cite">Turner et al., <i>Physiology &amp; Behavior</i>, 2020 — randomized human trial on sugar cravings.</p>
+      </div>
+      <div class="sci-card">
+        <p class="sh">🍵 Green tea catechins (EGCG) — the fat-metabolism nudge</p>
+        <p class="sb">A meta-analysis of randomized trials found green tea catechins produced a <b>small but statistically significant reduction in body weight</b> and helped maintain weight after loss — working through fat oxidation, not stimulation.</p>
+        <p class="cite">Hursel et al., <i>Int. Journal of Obesity</i>, 2009 — meta-analysis of 11 studies.</p>
+      </div>
+      <div class="sci-card">
+        <p class="sh">🫐 Wild Amazonian açaí — the clean-energy engine</p>
+        <p class="sb">Açaí's anthocyanins are some of the most antioxidant-dense compounds in nature. In human exercise trials, an açaí beverage <b>increased time-to-exhaustion</b> and improved antioxidant capacity — that's the "steady energy, no crash" most women feel first.</p>
+        <p class="cite">Carvalho-Peixoto et al., <i>Applied Physiology, Nutrition &amp; Metabolism</i>, 2015.</p>
+      </div>
+      <div class="sci-card">
+        <p class="sh">🍋 Garcinia (HCA) — the appetite assist</p>
+        <p class="sb">Garcinia's hydroxycitric acid has been studied for its role in appetite support and curbing the drive to overeat — a classic botanical in the craving-control stack.</p>
+        <p class="cite">Studied as a standalone appetite-support botanical.</p>
+      </div>
+      <p class="sci-foot">Each of these has been studied separately. What hadn't been tested is what happens when you put them together in one daily capsule — which is exactly what Crave Off does. These statements have not been evaluated by the FDA; this product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+    </div>
 
     <p>Thousands of women have already made the switch. Below is exactly how to get your supply today — plus the free gift we're including while this batch lasts. 👇</p>
   </section>
@@ -731,5 +860,51 @@ html{scroll-behavior:smooth}
 </script>
 
 <a href="#kits" id="stickyCta" class="sticky-cta sans">👇 See the kit &amp; claim your gift</a>
+<script>
+/* Animação dos gráficos da DTC (line draw + dots + reduced-motion safe) */
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function animateLine(svg){
+    var line = svg.querySelector('[data-line]');
+    var area = svg.querySelector('[data-area]');
+    var dots = svg.querySelectorAll('[data-d]');
+    if(line){
+      var len = line.getTotalLength ? line.getTotalLength() : 600;
+      line.style.strokeDasharray = len; line.style.strokeDashoffset = len;
+      line.getBoundingClientRect();
+      line.style.transition = 'stroke-dashoffset 1800ms cubic-bezier(.4,0,.2,1)';
+      line.style.strokeDashoffset = '0';
+    }
+    if(area){ area.style.opacity='0'; area.style.transition='opacity 1400ms ease 600ms'; area.getBoundingClientRect(); area.style.opacity=''; }
+    dots.forEach(function(d,i){
+      d.style.opacity='0'; d.style.transform='scale(0)'; d.style.transformBox='fill-box'; d.style.transformOrigin='center';
+      d.style.transition='opacity 300ms ease, transform 420ms cubic-bezier(.34,1.56,.64,1)';
+      setTimeout(function(){ d.style.opacity='1'; d.style.transform='scale(1)'; }, 350 + i*330);
+    });
+  }
+  function animateBars(svg){
+    svg.querySelectorAll('[data-bar]').forEach(function(r,i){
+      var fw = r.getAttribute('data-w')||r.getAttribute('width');
+      r.setAttribute('width','0');
+      r.style.transition='width 1100ms cubic-bezier(.4,0,.2,1) '+(i*180)+'ms';
+      setTimeout(function(){ r.setAttribute('width',fw); },60);
+    });
+  }
+  function run(svg){
+    if(svg.dataset.played) return; svg.dataset.played='1';
+    if(reduce){ return; }
+    if(svg.getAttribute('data-chart')==='line') animateLine(svg);
+    animateBars(svg);
+  }
+  var charts = document.querySelectorAll('.chartwrap svg');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ run(e.target); io.unobserve(e.target); } });
+    }, {threshold:.4});
+    charts.forEach(function(c){ io.observe(c); });
+  } else { charts.forEach(run); }
+})();
+</script>
+
 </body>
 </html>
