@@ -322,6 +322,24 @@ html{scroll-behavior:smooth}
     letter-spacing:.2px;animation:stickyPulse 2s infinite}
   .sticky-cta.show{display:block}
   @keyframes stickyPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
+  /* ===== DTC disfarçada (awareness, antes da oferta) ===== */
+  .dtc{margin:28px 0 8px}
+  .dtc-tag{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:3px;padding:3px 9px;margin-bottom:12px}
+  .dtc h2{font-family:var(--serif);font-size:28px;line-height:1.18;font-weight:900;color:var(--ink);margin:0 0 14px;letter-spacing:-.4px}
+  .dtc h3{font-family:var(--serif);font-size:21px;line-height:1.2;font-weight:800;color:var(--ink);margin:26px 0 10px}
+  .dtc p{font-family:var(--sans);font-size:16px;line-height:1.62;color:var(--ink);margin:0 0 14px}
+  .dtc p .em{color:var(--accent-2);font-weight:700}
+  .dtc figure{margin:18px 0}
+  .dtc figure img{width:100%;display:block;border-radius:12px;border:1px solid var(--line)}
+  .dtc figcaption{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.4;margin-top:7px;text-align:center}
+  .dtc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+  .dtc-grid figure{margin:0}
+  .dtc-ingredients{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:18px 0}
+  .dtc-ingredients li{font-family:var(--sans);font-size:14.5px;color:var(--ink);line-height:1.5;margin:0 0 9px;list-style:none;padding-left:24px;position:relative}
+  .dtc-ingredients li:last-child{margin:0}
+  .dtc-ingredients li::before{content:"🌿";position:absolute;left:0;top:0}
+  .dtc-pull{border-left:3px solid var(--accent);padding:4px 0 4px 16px;margin:20px 0;font-family:var(--serif);font-size:20px;line-height:1.35;font-weight:700;color:var(--ink);font-style:italic}
+  @media(max-width:600px){.dtc h2{font-size:23px}.dtc h3{font-size:19px}.dtc p{font-size:15.5px}.dtc-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -374,6 +392,52 @@ html{scroll-behavior:smooth}
     </a>
   </div>
 
+
+
+  <!-- ============ DTC disfarçada (awareness, ANTES da oferta) ============ -->
+  <section class="dtc sans">
+    <span class="dtc-tag">How it actually works</span>
+    <h2>The 3 PM raid on the pantry was never about willpower</h2>
+    <p>It's what happens when your blood sugar crashes after a meal and your brain screams for a quick fix before you can even think. That "food noise" isn't weakness — it's chemistry. And chemistry is something you can change.</p>
+
+    <figure>
+      <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/0992/9687/0689/files/CraveOffSupplementwithFreshBotanicals.png?v=1792541529" alt="Crave Off capsules with fresh Amazonian botanicals">
+      <figcaption>Crave Off — wild Amazonian açaí concentrated into a daily capsule.</figcaption>
+    </figure>
+
+    <p>Brazil's answer isn't another diet. It's <span class="em">wild Amazonian açaí</span> — its polyphenols and fiber help smooth out that post-meal spike, so the crash (and the cravings that ride it) fade on their own. We call it flipping the <span class="em">3 PM Switch</span>.</p>
+
+    <div class="dtc-pull">"Two capsules a day. Most people feel the afternoon cravings get quieter in about 1–2 weeks. Not willpower. Absence."</div>
+
+    <h3>What's inside each capsule</h3>
+    <ul class="dtc-ingredients">
+      <li><b>Wild Amazonian açaí</b> — helps steady the post-meal blood-sugar spike behind cravings.</li>
+      <li><b>Green tea, garcinia &amp; gymnema</b> — classic appetite &amp; craving support botanicals.</li>
+      <li><b>Steadier all-day energy</b> — no afternoon crash, no jitters.</li>
+      <li><b>100% plant-based · non-GMO · third-party tested · made in the USA.</b></li>
+    </ul>
+
+    <div class="dtc-grid">
+      <figure>
+        <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/0992/9687/0689/files/BeforeandAfterCravingControl.png?v=1792541529" alt="Before and after craving control">
+        <figcaption>Before &amp; after — cravings under control.</figcaption>
+      </figure>
+      <figure>
+        <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/0992/9687/0689/files/CraveOffWithoutvsWithComparison.png?v=1792541529" alt="Without vs with Crave Off">
+        <figcaption>A day without vs. a day with Crave Off.</figcaption>
+      </figure>
+    </div>
+
+    <h3>It fits the life you already have</h3>
+    <p>No meal plans to memorize, no foods to ban, no gym membership required. Two capsules with water — morning or lunch — and you let the açaí do the quiet work while you get on with your day.</p>
+
+    <figure>
+      <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/0992/9687/0689/files/All-DayWellnessRoutineInfographic.png?v=1792541529" alt="All-day wellness routine with Crave Off">
+      <figcaption>A simple all-day routine — steady energy, quieter cravings.</figcaption>
+    </figure>
+
+    <p>Thousands of women have already made the switch. Below is exactly how to get your supply today — plus the free gift we're including while this batch lasts. 👇</p>
+  </section>
 
   <!-- ============ OFERTA (aparece con delay) ============ -->
   <section id="offer">
