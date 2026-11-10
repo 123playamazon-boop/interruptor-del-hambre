@@ -314,6 +314,14 @@ html{scroll-behavior:smooth}
   .fbc-react{margin-left:auto;background:#fff;border:1px solid var(--line);border-radius:12px;padding:1px 7px;font-weight:600}
   .fbc-reply{margin-top:11px;margin-left:4px}
   .fbc-reply .fbc-av{width:30px;height:30px;font-size:11px}
+
+  /* sticky see-the-offer CTA */
+  .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;text-align:center;
+    background:linear-gradient(180deg,var(--green),#15692d);color:#fff;font-weight:800;font-size:17px;
+    padding:15px 18px;text-decoration:none;box-shadow:0 -4px 20px rgba(0,0,0,.25);font-family:var(--sans);
+    letter-spacing:.2px;animation:stickyPulse 2s infinite}
+  .sticky-cta.show{display:block}
+  @keyframes stickyPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
 </style>
 </head>
 <body>
@@ -350,7 +358,7 @@ html{scroll-behavior:smooth}
     <vturb-smartplayer id="vid-6af22eccc1791be4f06f6be6" style="display:block;margin:0 auto;width:100%;max-width:400px;"><div class="vturb-player-placeholder" style="position:relative;width:100%;padding:125% 0 0;z-index:0;background-color:black;"></div></vturb-smartplayer>
     <script type="text/javascript">var s=document.createElement("script");s.src="https://scripts.converteai.net/1f5abc79-087e-4a72-9ca1-4e5ee32cc991/players/6af22eccc1791be4f06f6be6/v4/player.js",s.async=!0,document.head.appendChild(s);</script>
   </div>
-  <p class="videohint sans"><span class="pulse"></span> Turn up the volume — pay attention, the video can't be fast-forwarded</p>
+  <a href="#kits" class="videohint sans" style="display:block;text-decoration:none;cursor:pointer"><span class="pulse"></span> Turn up the volume — pay attention, the video can't be fast-forwarded</a>
   <!-- ===== Prova social + CTA (depois do vídeo, antes da oferta) ===== -->
   <div class="proofcta sans">
     <h3 class="pc-title">Real women. Real results.</h3>
@@ -379,7 +387,7 @@ html{scroll-behavior:smooth}
     </div>
 
     <div class="offer-head">
-      <span class="flash sans">⚡ Switch unlocked — today only</span>
+      <a href="#kits" class="flash sans" style="text-decoration:none;cursor:pointer">⚡ Switch unlocked — today only</a>
       <h2>Turn off your hunger with <span style="color:var(--accent-2)">Crave Off</span>.</h2>
       <p class="sub sans" style="font-size:16px">The stronger upgrade to the Lean Drops. And if you go for the full transformation (6-bottle kit), the <b style="color:var(--accent-2)">Bum Bum Cream</b> firming cream is FREE — melt the fat and stay firm at the same time. Pick your kit below.</p>
     </div>
@@ -641,7 +649,23 @@ html{scroll-behavior:smooth}
     setTimeout(function(){ show(); setInterval(show, 9000); }, 5000);
   })();
 
+
+  // Sticky "see the offer" CTA after 30s; hide once the kits are on screen
+  (function(){
+    var sticky=document.getElementById('stickyCta');
+    var kits=document.getElementById('kits');
+    if(!sticky) return;
+    setTimeout(function(){ sticky.classList.add('show'); }, 30000);
+    if(kits && 'IntersectionObserver' in window){
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){ sticky.style.visibility = e.isIntersecting ? 'hidden' : 'visible'; });
+      },{threshold:0.1}).observe(kits);
+    }
+    sticky.addEventListener('click', function(){ setTimeout(function(){ sticky.classList.remove('show'); }, 400); });
+  })();
 })();
 </script>
+
+<a href="#kits" id="stickyCta" class="sticky-cta sans">👇 See the kit &amp; claim your gift</a>
 </body>
 </html>

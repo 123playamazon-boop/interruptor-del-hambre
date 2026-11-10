@@ -305,6 +305,13 @@ html{scroll-behavior:smooth}
   .fbc-react{margin-left:auto;background:#fff;border:1px solid var(--line);border-radius:12px;padding:1px 7px;font-weight:600}
   .fbc-reply{margin-top:11px;margin-left:4px}
   .fbc-reply .fbc-av{width:30px;height:30px;font-size:11px}
+
+  .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;text-align:center;
+    background:linear-gradient(180deg,var(--green),#15692d);color:#fff;font-weight:800;font-size:17px;
+    padding:15px 18px;text-decoration:none;box-shadow:0 -4px 20px rgba(0,0,0,.25);font-family:var(--sans);
+    letter-spacing:.2px;animation:stickyPulse 2s infinite}
+  .sticky-cta.show{display:block}
+  @keyframes stickyPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
 </style>
 </head>
 <body>
@@ -341,7 +348,7 @@ html{scroll-behavior:smooth}
     <vturb-smartplayer id="vid-6af22f93dda819926d33ffc9" style="display:block;margin:0 auto;width:100%;max-width:400px;"><div class="vturb-player-placeholder" style="position:relative;width:100%;padding:56.25% 0 0;z-index:0;background-color:black;"></div></vturb-smartplayer>
     <script type="text/javascript">var s=document.createElement("script");s.src="https://scripts.converteai.net/1f5abc79-087e-4a72-9ca1-4e5ee32cc991/players/6af22f93dda819926d33ffc9/v4/player.js",s.async=!0,document.head.appendChild(s);</script>
   </div>
-  <p class="videohint sans"><span class="pulse"></span> Sube el volumen — presta atención, el video no se puede adelantar</p>
+  <a href="#kits" class="videohint sans" style="display:block;text-decoration:none;cursor:pointer"><span class="pulse"></span> Sube el volumen — presta atención, el video no se puede adelantar</a>
   <!-- ===== Prueba social + CTA (después del video, antes de la oferta) ===== -->
   <div class="proofcta sans">
     <h3 class="pc-title">Mujeres reales. Resultados reales.</h3>
@@ -361,7 +368,7 @@ html{scroll-behavior:smooth}
   <!-- ============ OFERTA (aparece con delay) ============ -->
   <section id="offer">
     <div class="offer-head">
-      <span class="flash sans">⚡ Interruptor desbloqueado — solo por hoy</span>
+      <a href="#kits" class="flash sans" style="text-decoration:none;cursor:pointer">⚡ Interruptor desbloqueado — solo por hoy</a>
       <h2>Apaga tu hambre con <span style="color:var(--accent-2)">Crave Off</span>.</h2>
       <p class="sub sans" style="font-size:16px">Y si vas por la transformación completa (kit de 6), el <b style="color:var(--accent-2)">Bumbum Cream</b> firmador va de REGALO — para adelgazar y quedar firme al mismo tiempo. Elige tu kit abajo.</p>
     </div>
@@ -584,7 +591,22 @@ html{scroll-behavior:smooth}
       pop.classList.add('show'); setTimeout(function(){ pop.classList.remove('show'); },4500); }
     setTimeout(function(){ show(); setInterval(show,9000); },5000);
   })();
+
+  (function(){
+    var sticky=document.getElementById('stickyCta');
+    var kits=document.getElementById('kits');
+    if(!sticky) return;
+    setTimeout(function(){ sticky.classList.add('show'); }, 30000);
+    if(kits && 'IntersectionObserver' in window){
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){ sticky.style.visibility = e.isIntersecting ? 'hidden' : 'visible'; });
+      },{threshold:0.1}).observe(kits);
+    }
+    sticky.addEventListener('click', function(){ setTimeout(function(){ sticky.classList.remove('show'); }, 400); });
+  })();
 })();
 </script>
+
+<a href="#kits" id="stickyCta" class="sticky-cta sans">👇 Mira el kit y reclama tu regalo</a>
 </body>
 </html>
