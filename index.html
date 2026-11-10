@@ -371,6 +371,17 @@ html{scroll-behavior:smooth}
   .sci-card .cite{font-family:var(--sans);font-size:11.5px;color:var(--accent-2);margin:6px 0 0;font-weight:600}
   .sci-foot{font-family:var(--sans);font-size:11.5px;color:var(--muted);line-height:1.45;margin:10px 0 0;font-style:italic}
   @media(max-width:600px){.glp h3,.tl h3,.sci h3{font-size:20px}.glp p{font-size:15px}}
+  /* ===== Botão de compra óbvio dentro de cada kit ===== */
+  .kit{flex-wrap:wrap}
+  .kit-cta{flex:1 0 100%;margin-top:14px;display:flex;align-items:center;justify-content:center;gap:8px;
+    background:linear-gradient(180deg,var(--green),#15692d);color:#fff;
+    font-family:var(--sans);font-weight:800;font-size:16px;letter-spacing:.2px;
+    padding:14px 16px;border-radius:10px;text-align:center;cursor:pointer;
+    box-shadow:0 4px 14px rgba(26,127,55,.28);animation:kitpulse 1.8s ease-in-out infinite;line-height:1.15}
+  .kit.best .kit-cta,.kit.selected .kit-cta{background:linear-gradient(180deg,var(--accent),#b23418);box-shadow:0 4px 16px rgba(204,0,0,.3)}
+  .kit-cta .arw{font-size:18px}
+  @keyframes kitpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+  @media(prefers-reduced-motion:reduce){.kit-cta{animation:none}}
 </style>
 </head>
 <body>
@@ -599,7 +610,8 @@ html{scroll-behavior:smooth}
           <div class="now">$49</div>
           <div class="per">1 mes de antojos en silencio</div>
         </div>
-      </label>
+              <span class="kit-cta sans"><span>Reclamar este kit</span> <span class="arw">&#8594;</span></span>
+</label>
 
       <!-- KIT 3 -->
       <label class="kit" data-cart="/cart/54450291048737:1">
@@ -614,7 +626,8 @@ html{scroll-behavior:smooth}
           <div class="now">$117</div>
           <div class="per">3 meses — cambio real en el espejo</div>
         </div>
-      </label>
+              <span class="kit-cta sans"><span>Reclamar este kit</span> <span class="arw">&#8594;</span></span>
+</label>
 
       <!-- KIT 6 - BEST + REGALO -->
       <label class="kit best selected" data-cart="/cart/54450291081505:1,53027149480225:1?discount=BUMBUMFREE">
@@ -630,7 +643,8 @@ html{scroll-behavior:smooth}
           <div class="now">$180</div>
           <div class="per">6 meses + crema firmadora gratis</div>
         </div>
-      </label>
+              <span class="kit-cta sans"><span>Reclamar mi kit + regalo GRATIS</span> <span class="arw">&#8594;</span></span>
+</label>
     </div>
 
     <!-- ===== Stack de valor (Hormozi) ===== -->
@@ -750,10 +764,10 @@ html{scroll-behavior:smooth}
   kits.forEach(function(k){
     k.style.cursor = 'pointer';
     var cart = k.getAttribute('data-cart');
-    k.addEventListener('click', function(e){
-      e.preventDefault();
-      if(cart){ window.location.href = withTracking(SHOP + cart); }
-    });
+    function go(e){ if(e){e.preventDefault();} if(cart){ window.location.href = withTracking(SHOP + cart); } }
+    k.addEventListener('click', go);
+    var btn = k.querySelector('.kit-cta');
+    if(btn){ btn.addEventListener('click', function(e){ e.stopPropagation(); go(e); }); }
   });
 
   (function(){
